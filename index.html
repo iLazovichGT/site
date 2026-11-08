@@ -48,9 +48,9 @@ main,header,footer{position:relative;z-index:1}
 .hero h1 b{font-weight:600}
 .hero p{font-size:clamp(17px,1.7vw,20px);color:var(--muted);max-width:580px;margin:22px auto 0}
 .ctas{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
-.stage{position:relative;max-width:1000px;margin:44px auto 0;height:clamp(300px,44vw,500px)}
-.shot{position:absolute;inset:7% 9% 0;border-radius:26px;padding:10px}
-.shot img{border-radius:18px;width:100%;height:100%;object-fit:cover;object-position:top left}
+.stage{position:relative;max-width:1000px;margin:44px auto 0;padding:clamp(34px,5vw,56px) 9% 0}
+.shot{position:relative;border-radius:26px;padding:10px}
+.shot img{border-radius:18px;width:100%;height:auto;display:block}
 .chip{position:absolute;border-radius:20px;padding:14px 18px;min-width:160px;text-align:left}
 .chip small{display:block;font-size:12px;color:var(--soft);font-weight:600}
 .chip b{font-size:clamp(20px,2.6vw,30px);font-weight:600;letter-spacing:-.02em}
@@ -59,7 +59,7 @@ main,header,footer{position:relative;z-index:1}
 .chip.c{right:3%;bottom:8%;animation:bob 9s ease-in-out infinite}
 .chip.c b{color:var(--pinkink)}
 @keyframes bob{50%{transform:translateY(-10px)}}
-@media (max-width:640px){.shot{inset:14% 0 0}.chip{min-width:0;padding:10px 12px}.chip.a{top:0;left:0}.chip.b{top:0}.chip.c{bottom:4%}}
+@media (max-width:640px){.stage{padding:64px 0 0}.chip{min-width:0;padding:10px 12px}.chip.a{top:0;left:0}.chip.b{top:0}.chip.c{bottom:4%}}
 .niche{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:40px}
 .niche span{font-size:14px;padding:8px 14px;border-radius:999px;color:#2C4255}
 
@@ -101,11 +101,11 @@ section.s{padding-top:clamp(96px,12vw,150px)}
 /* кейс */
 .case{display:grid;grid-template-columns:1.5fr 1fr;gap:18px;margin-top:44px}
 .case>*{min-width:0}
-.video{position:relative;display:block;border-radius:30px;padding:10px;aspect-ratio:16/10;max-width:100%}
-.video img{width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:22px}
+.video{position:relative;display:block;border-radius:30px;padding:10px;margin:0;max-width:100%}
+.video video{width:100%;height:auto;display:block;border-radius:22px;background:#0B2236}
 .video .play{position:absolute;inset:0;display:grid;place-items:center}
 .video .play span{width:86px;height:86px;border-radius:50%;display:grid;place-items:center}
-.video .t{position:absolute;left:26px;bottom:24px;padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600}
+.video .t{position:absolute;left:26px;top:24px;padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600}
 .facts{display:grid;gap:12px;align-content:start}
 .fact{border-radius:24px;padding:22px}
 .fact b{display:block;font-size:30px;font-weight:600;letter-spacing:-.03em}
@@ -203,7 +203,7 @@ header{position:sticky;top:calc(10px + env(safe-area-inset-top,0px));z-index:50;
 .cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:44px}
 .casecard{display:flex;flex-direction:column;border-radius:30px;padding:12px;transition:transform .2s}
 .casecard:hover{transform:translateY(-3px)}
-.casecard img{border-radius:20px;aspect-ratio:16/10;object-fit:cover;object-position:top left;width:100%}
+.casecard img{border-radius:20px;aspect-ratio:16/10;object-fit:contain;object-position:center;width:100%;background:#fff}
 .casecard .in{padding:18px 14px 12px;display:flex;flex-direction:column;gap:8px;flex:1}
 .casecard .tag{font-size:12.5px;font-weight:700;color:var(--pinkink);letter-spacing:.04em}
 .casecard h3{font-weight:600;font-size:clamp(21px,2.2vw,26px);line-height:1.2}
@@ -237,6 +237,23 @@ footer .req{flex-basis:100%;text-align:center;font-size:13px;color:var(--soft);m
 
 .btn svg{flex:none}
 .mailbtn .mail{cursor:pointer}
+
+.mods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:44px}
+.mcol{display:flex;flex-direction:column;gap:12px}
+.mh{font-size:13px;font-weight:700;color:var(--pinkink);letter-spacing:.06em;text-transform:uppercase;margin:0 0 2px 8px}
+button.tile{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%;position:relative;transition:transform .15s}
+button.tile:hover{transform:translateY(-2px)}
+.tile .see{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:var(--pinkink)}
+@media (max-width:900px){.mods{grid-template-columns:1fr}}
+.gallery img,.frame img{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:60;background:rgba(11,34,54,.86);display:none;align-items:center;justify-content:center;padding:64px 16px 24px}
+.lb.on{display:flex}
+.lb figure{margin:0;max-width:min(1500px,100%);text-align:center}
+.lb img{max-width:100%;max-height:80vh;border-radius:14px;background:#fff;box-shadow:0 30px 80px -20px rgba(0,0,0,.6)}
+.lb figcaption{color:#fff;margin-top:12px;font-size:15px}
+.lb button{position:absolute;background:rgba(255,255,255,.16);color:#fff;border:0;border-radius:50%;width:48px;height:48px;font-size:26px;line-height:1;cursor:pointer}
+.lb .lb-x{top:12px;right:12px}.lb .lb-p{left:10px;top:50%}.lb .lb-n{right:10px;top:50%}
+.lb:not(.multi) .lb-p,.lb:not(.multi) .lb-n{display:none}
 </style>
 </head>
 <body>
@@ -350,6 +367,22 @@ footer .req{flex-basis:100%;text-align:center;font-size:13px;color:var(--soft);m
   document.querySelectorAll('.burger .drop a').forEach(function(a){a.addEventListener('click',function(){a.closest('details').open=false})});
   document.querySelectorAll('.mail').forEach(function(el){el.style.cursor='pointer';el.title='Нажмите, чтобы скопировать';el.addEventListener('click',function(){
     var t=el.textContent.trim();if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){var o=el.textContent;el.textContent='Скопировано';setTimeout(function(){el.textContent=o},1400)},function(){})}})});
+  (function(){
+    var lb=document.createElement('div');lb.className='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');
+    lb.innerHTML='<button class="lb-x" aria-label="Закрыть">×</button><button class="lb-p" aria-label="Назад">‹</button><figure><img alt=""><figcaption></figcaption></figure><button class="lb-n" aria-label="Дальше">›</button>';
+    document.body.appendChild(lb);
+    var set=[],k=0,im=lb.querySelector('img'),cap=lb.querySelector('figcaption');
+    function show(){im.src=set[k][0];im.alt=set[k][1];cap.textContent=set[k][1]+(set.length>1?' · '+(k+1)+' из '+set.length:'');lb.classList.toggle('multi',set.length>1)}
+    function lbOpen(a){set=a;k=0;show();lb.classList.add('on');document.body.style.overflow='hidden';lb.querySelector('.lb-x').focus()}
+    function lbClose(){lb.classList.remove('on');document.body.style.overflow=''}
+    function step(d){k=(k+set.length+d)%set.length;show()}
+    lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('lb-x'))lbClose()});
+    lb.querySelector('.lb-p').addEventListener('click',function(){step(-1)});
+    lb.querySelector('.lb-n').addEventListener('click',function(){step(1)});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')lbClose();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+    document.querySelectorAll('[data-shots]').forEach(function(el){el.addEventListener('click',function(){lbOpen(el.getAttribute('data-shots').split(';').map(function(x){return x.split('|')}))})});
+    document.querySelectorAll('.gallery img,.frame img').forEach(function(i){i.addEventListener('click',function(){var f=i.closest('figure'),c=f&&f.querySelector('figcaption');lbOpen([[i.currentSrc||i.src,c?c.textContent:(i.alt||'')]])})});
+  })();
   if(!$('qbox'))return;
   // Адрес приёма ответов (Google Apps Script). Пока пусто — ответы только уходят в сообщение.
   var ENDPOINT='';
