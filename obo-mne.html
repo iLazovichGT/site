@@ -4,10 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Обо мне · Ирина</title>
-<meta name="description" content="Ирина · Архитектор учётных систем (ERP). Проектирую и собираю учётные системы для малого бизнеса: сметы, смены, зарплата, документы и деньги в одной системе.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap">
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}
+<meta name="description" content="Ирина · Архитектор учётных систем (ERP). Инженер-программист, прикладная математика, диплом с отличием. 2006–2019 — Газпром бурение.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Ирина · Архитектор учётных систем">
+<meta property="og:title" content="Обо мне · Ирина">
+<meta property="og:description" content="Ирина · Архитектор учётных систем (ERP). Инженер-программист, прикладная математика, диплом с отличием. 2006–2019 — Газпром бурение.">
+<meta property="og:url" content="https://ilazovichgt.github.io/site/obo-mne.html">
+<meta property="og:image" content="https://ilazovichgt.github.io/site/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="fonts/manrope-cyr.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Manrope';font-style:normal;font-weight:300 700;font-display:swap;src:url(fonts/manrope-cyr.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Manrope';font-style:normal;font-weight:300 700;font-display:swap;src:url(fonts/manrope-lat.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}
 /* «Жидкое стекло»: живое голубо-розовое сияние позади всей страницы, всё содержимое — на матовом стекле */
 :root{
   --ink:#0B2236; --muted:#3E5466; --soft:#5E7384; --sky:#4CB6EE; --sky2:#8FD3F6; --pink:#F39BCB; --pinkink:#B8336F;
@@ -19,7 +30,7 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.55;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer;color:inherit}
 :focus-visible{outline:2px solid var(--pinkink);outline-offset:3px}
@@ -59,7 +70,7 @@ main,header,footer{position:relative;z-index:1}
 .chip.c{right:3%;bottom:8%;animation:bob 9s ease-in-out infinite}
 .chip.c b{color:var(--pinkink)}
 @keyframes bob{50%{transform:translateY(-10px)}}
-@media (max-width:640px){.stage{padding:64px 0 0}.chip{min-width:0;padding:10px 12px}.chip.a{top:0;left:0}.chip.b{top:0}.chip.c{bottom:4%}}
+@media (max-width:640px){.stage{padding:52px 0 22px}.chip{min-width:0;padding:8px 11px;border-radius:16px}.chip small{font-size:11px}.chip b{font-size:18px}.chip.a{top:0;left:0}.chip.b{top:0}.chip.c{bottom:0;right:-6px}}
 .niche{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:40px}
 .niche span{font-size:14px;padding:8px 14px;border-radius:999px;color:#2C4255}
 
@@ -96,15 +107,12 @@ section.s{padding-top:clamp(96px,12vw,150px)}
 .res h3{font-weight:300;font-size:clamp(34px,5vw,62px);letter-spacing:-.04em;margin-top:12px}
 .res h3 b{font-weight:600}
 .res p{color:var(--muted);font-size:18px;max-width:600px;margin:16px auto 0}
-.again{background:none;border:none;color:var(--soft);padding:12px}
 
 /* кейс */
 .case{display:grid;grid-template-columns:1.5fr 1fr;gap:18px;margin-top:44px}
 .case>*{min-width:0}
 .video{position:relative;display:block;border-radius:30px;padding:10px;margin:0;max-width:100%}
 .video video{width:100%;height:auto;display:block;border-radius:22px;background:#0B2236}
-.video .play{position:absolute;inset:0;display:grid;place-items:center}
-.video .play span{width:86px;height:86px;border-radius:50%;display:grid;place-items:center}
 .video .t{position:absolute;left:26px;top:24px;padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600}
 .facts{display:grid;gap:12px;align-content:start}
 .fact{border-radius:24px;padding:22px}
@@ -138,7 +146,6 @@ section.s{padding-top:clamp(96px,12vw,150px)}
 .contact h2 b{font-weight:600}
 .contact p{color:var(--muted);font-size:18px;max-width:560px;margin:16px auto 0}
 .mail{user-select:all}
-.copy-ok{font-size:14px;color:var(--pinkink);margin-top:10px}
 footer{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:center;padding:36px 0 56px;font-size:14px;color:var(--soft)}
 footer a:hover{color:var(--ink)}
 /* дополнительные блоки для внутренних страниц */
@@ -195,11 +202,12 @@ header{position:sticky;top:calc(10px + env(safe-area-inset-top,0px));z-index:50;
 .burger{display:none;justify-self:end}
 .burger summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.7);border:1px solid var(--edge)}
 .burger summary::-webkit-details-marker{display:none}
-.burger .drop{position:absolute;right:0;top:calc(100% + 8px);display:grid;gap:2px;padding:8px;border-radius:24px;min-width:220px}
+.burger .drop{position:absolute;right:0;top:calc(100% + 12px);display:grid;gap:2px;padding:8px;border-radius:24px;min-width:220px;max-width:calc(100vw - 32px)}
 .burger .drop a{padding:12px 16px;border-radius:16px;font-weight:600}
 .burger .drop a:hover{background:#fff}
-@media (max-width:1060px){.menu{display:none}.nav{grid-template-columns:1fr auto auto}.burger{display:block;position:relative}}
+@media (max-width:1060px){.menu{display:none}.nav{grid-template-columns:1fr auto auto;gap:8px}.burger{display:block;position:relative}}
 @media (max-width:520px){.brand small{display:none}.nav .cta{padding:10px 16px;font-size:14px}}
+@media (max-width:359px){.nav .cta{display:none}}
 .cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:44px}
 .casecard{display:flex;flex-direction:column;border-radius:30px;padding:12px;transition:transform .2s}
 .casecard:hover{transform:translateY(-3px)}
@@ -219,11 +227,6 @@ header{position:sticky;top:calc(10px + env(safe-area-inset-top,0px));z-index:50;
 .gaps li{padding:14px 18px;border-radius:18px;background:var(--glass-hi);border:1px solid var(--edge);display:grid;gap:3px}
 .gaps li b{font-weight:600}
 .gaps li span{font-size:15px;color:var(--muted)}
-.sent{max-width:640px;margin:22px auto 0;border-radius:24px;padding:22px 24px}
-.sent b{font-size:18px;font-weight:600}
-.sent #code{color:var(--pinkink);font-variant-numeric:tabular-nums;letter-spacing:.06em}
-.sent p{font-size:16px!important;margin:10px 0 0!important}
-.sent .ctas{margin-top:16px}
 [hidden]{display:none!important}
 footer .req{flex-basis:100%;text-align:center;font-size:13px;color:var(--soft);margin-top:6px}
 
@@ -238,7 +241,7 @@ button.tile{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%
 button.tile:hover{transform:translateY(-2px)}
 .tile .see{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:var(--pinkink)}
 @media (max-width:900px){.mods{grid-template-columns:1fr}}
-.gallery img,.frame img{cursor:zoom-in}
+.gallery img,.frame img,.shot img{cursor:zoom-in}
 .lb{position:fixed;inset:0;z-index:60;background:rgba(11,34,54,.86);display:none;align-items:center;justify-content:center;padding:64px 16px 24px}
 .lb.on{display:flex}
 .lb figure{margin:0;max-width:min(1500px,100%);text-align:center}
@@ -274,81 +277,109 @@ button.tile:hover{transform:translateY(-2px)}
 .vtabs{margin-top:16px}
 .vtabs .btn{min-height:44px;font-size:15px}
 .vtabs .btn.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* правки после ревью 08.11 */
+.panel>h2{font-weight:300;font-size:clamp(30px,4.4vw,54px);line-height:1.08}
+.panel>h2 b{font-weight:600}
+.mailrow{display:inline-flex;gap:8px}
+.mailrow .icbtn{flex:none}
+@media (max-width:520px){
+  .ctas:not(.vtabs){flex-direction:column;align-items:stretch;max-width:340px;margin-left:auto;margin-right:auto}
+  .ctas:not(.vtabs) .btn{width:100%}
+  .ctas:not(.vtabs) .icbtn{width:50px;flex:none}
+  .mailrow{display:flex}
+  .mailrow>a{flex:1;min-width:0}
+}
+@media (max-width:760px),(hover:none){.aurora i,.chip{animation:none}}
+@media (hover:none) and (pointer:coarse){.lb .lb-p,.lb .lb-n{display:none}}
+@media (max-width:400px){.contact{padding:32px 20px}.mailrow>a{padding:12px;font-size:15px;gap:6px}}
 </style>
 </head>
 <body>
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
-<header><div class="w"><nav class="nav gl" aria-label="Разделы сайта"><a class="brand" href="./"><img src="img/ira-round.jpg" alt=""><span><b>Ирина</b><small>Архитектор учётных систем (ERP)</small></span></a><div class="menu"><a href="./#umeyu">Что умею</a><a href="./#proverka">Проверить себя</a><a href="./#keisy">Кейсы</a><a href="./#kak">Как работаю</a><a href="obo-mne.html" aria-current="page">Обо мне</a></div><details class="burger"><summary aria-label="Меню"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><div class="drop gl"><a href="./#umeyu">Что умею</a><a href="./#proverka">Проверить себя</a><a href="./#keisy">Кейсы</a><a href="./#kak">Как работаю</a><a href="obo-mne.html" aria-current="page">Обо мне</a></div></details><a class="btn pri cta" href="#napisat">Обсудить задачу</a></nav></div></header>
+<header><div class="w"><nav class="nav gl" aria-label="Разделы сайта"><a class="brand" href="./"><img src="img/ira-round.webp" alt="" width="38" height="38"><span><b>Ирина</b><small>Архитектор учётных систем (ERP)</small></span></a><div class="menu"><a href="./#umeyu">Что умею</a><a href="./#proverka">Проверить себя</a><a href="./#keisy">Кейсы</a><a href="./#kak">Как работаю</a><a href="obo-mne.html" aria-current="page">Обо мне</a></div><a class="btn pri cta" href="#napisat">Обсудить задачу</a><details class="burger"><summary aria-label="Меню"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><div class="drop gl"><a href="./#umeyu">Что умею</a><a href="./#proverka">Проверить себя</a><a href="./#keisy">Кейсы</a><a href="./#kak">Как работаю</a><a href="obo-mne.html" aria-current="page">Обо мне</a></div></details></nav></div></header>
 <main class="w">
   <section class="page-hero">
     <span class="eyebrow gl">Обо мне</span>
-    <div class="big-photo"><img src="img/ira-round.jpg" alt="Ирина"></div>
-    <h1 style="margin-top:32px">Ирина · <b>Архитектор учётных систем</b></h1>
-    <p>Проектирую и собираю системы учёта уровня ERP для малого бизнеса. Сначала разбираю, как устроено дело — ваши бизнес-процессы, и помогаю их выстроить. Потом выбираю инструмент — от Google Таблицы до приложения для компьютера и телефона.</p>
+    <div class="big-photo"><img src="img/ira-round.webp" alt="Ирина" width="360" height="360"></div>
+    <h1 style="margin-top:32px">Ирина · <b>Архитектор учётных систем</b> (ERP)</h1>
+    <p>Проектирую и&nbsp;собираю системы учёта уровня ERP для малого бизнеса. Сначала разбираю, как устроено дело&nbsp;— ваши бизнес-процессы, и&nbsp;помогаю их&nbsp;выстроить. Потом выбираю инструмент&nbsp;— от&nbsp;Google Таблицы до&nbsp;приложения для компьютера и&nbsp;телефона.</p>
   </section>
 
   <section class="s">
-    <div class="head"><span class="eyebrow gl">Опыт</span><h2>Инженер-программист, <b>который начинает с вопросов</b></h2></div>
+    <div class="head"><span class="eyebrow gl">Опыт</span><h2>Инженер-программист, <b>который начинает с&nbsp;вопросов</b></h2></div>
     <div class="path">
-      <div class="gl"><em>2006–2019</em><p><b>Газпром бурение.</b> От инженера до ведущего инженера-программиста: базы данных, внедрение Oracle E-Business Suite — видела большую ERP изнутри, со стороны заказчика.</p></div>
-      <div class="gl"><em>сегодня</em><p><b>Учёт для малого бизнеса.</b> Проектирую и собираю учётные системы: от Google Таблицы до приложения для компьютера и телефона. С июля 2026 в моей системе работает вся команда отделочной компании. <a href="otdelka.html" style="color:var(--pinkink);font-weight:600">Смотреть кейс →</a></p></div>
+      <div class="gl"><em>2006–2019</em><p><b>Газпром бурение.</b> От&nbsp;инженера до&nbsp;ведущего инженера-программиста: базы данных, внедрение Oracle E-Business Suite&nbsp;— видела большую ERP изнутри, со&nbsp;стороны заказчика.</p></div>
+      <div class="gl"><em>сегодня</em><p><b>Учёт для малого бизнеса.</b> Проектирую и&nbsp;собираю учётные системы: от&nbsp;Google Таблицы до&nbsp;приложения для компьютера и&nbsp;телефона. С&nbsp;июля 2026 в&nbsp;моей системе работает вся команда отделочной компании. <a href="otdelka.html" style="color:var(--pinkink);font-weight:600">Смотреть кейс →</a></p></div>
     </div>
   </section>
 
   <section class="s">
     <div class="panel gl" style="text-align:center">
       <span class="eyebrow gl">Почему так</span>
-      <p style="font-size:clamp(22px,2.8vw,32px);font-weight:300;color:var(--ink);line-height:1.4;max-width:860px;margin:20px auto 0;letter-spacing:-.02em">В Газпром бурении я видела внедрение большой ERP изнутри, со стороны заказчика: прежде чем система заработает, нужно понять, как на самом деле работают люди. <b style="font-weight:600">Поэтому я начинаю с вопросов, а не с программы.</b></p>
-      <a class="back" href="./#proverka">Ответить на мои вопросы →</a>
+      <p style="font-size:clamp(22px,2.8vw,32px);font-weight:300;color:var(--ink);line-height:1.4;max-width:860px;margin:20px auto 0;letter-spacing:-.02em">В&nbsp;Газпром бурении я&nbsp;видела внедрение большой ERP изнутри, со&nbsp;стороны заказчика: прежде чем система заработает, нужно понять, как на&nbsp;самом деле работают люди. <b style="font-weight:600">Поэтому я&nbsp;начинаю с&nbsp;вопросов, а&nbsp;не&nbsp;с&nbsp;программы.</b></p>
+      <a class="back" href="./#proverka">Ответить на&nbsp;мои вопросы →</a>
     </div>
   </section>
 
   <section class="s">
-    <div class="head"><span class="eyebrow gl">Принципы</span><h2>Мои правила <b>в работе</b></h2></div>
+    <div class="head"><span class="eyebrow gl">Принципы</span><h2>Мои правила <b>в&nbsp;работе</b></h2></div>
     <div class="tiles">
-      <div class="tile gl"><b>Сначала разбираюсь</b><p>Бесплатный разбор, потом обследование: ТЗ, точная цена и срок.</p></div>
-      <div class="tile gl"><b>Цена и срок не меняются</b><p>Называю до старта. Изменения обсуждаем отдельно и вслух.</p></div>
-      <div class="tile gl"><b>Не вместо 1С</b><p>Бухгалтерию не дублирую — делаю выгрузку бухгалтеру.</p></div>
-      <div class="tile gl"><b>Данные ваши</b><p>База и доступы оформлены на вас. Нужен сервер в России — разместим там.</p></div>
+      <div class="tile gl"><b>Сначала разбираюсь</b><p>Бесплатный разбор, потом обследование: ТЗ, точная цена и&nbsp;срок.</p></div>
+      <div class="tile gl"><b>Цена и&nbsp;срок не&nbsp;меняются</b><p>Называю до&nbsp;старта. Изменения обсуждаем отдельно и&nbsp;вслух.</p></div>
+      <div class="tile gl"><b>Не&nbsp;вместо 1С</b><p>Бухгалтерию не&nbsp;дублирую&nbsp;— делаю выгрузку бухгалтеру.</p></div>
+      <div class="tile gl"><b>Данные ваши</b><p>База и&nbsp;доступы оформлены на&nbsp;вас. Нужен сервер в&nbsp;России&nbsp;— разместим там.</p></div>
       
-      <div class="tile gl"><b>Официально</b><p>ИП с 2009 года, договор, оплата на расчётный счёт.</p></div>
+      <div class="tile gl"><b>Официально</b><p>ИП&nbsp;с&nbsp;2009 года, договор, оплата на&nbsp;расчётный счёт.</p></div>
     </div>
   </section>
 
   <section class="s">
-    <div class="head"><span class="eyebrow gl">Документы</span><h2>Образование <b>и сертификаты</b></h2></div>
+    <div class="head"><span class="eyebrow gl">Документы</span><h2>Образование <b>и&nbsp;сертификаты</b></h2></div>
     <div class="tiles">
-      <div class="tile gl"><b>Диплом с отличием</b><p>УГТУ-УПИ, 2005, прикладная математика, квалификация «математик-инженер»</p></div>
-      <div class="tile gl"><b>Oracle University</b><p>4 сертификата по Oracle Database, 2008</p></div>
+      <div class="tile gl"><b>Диплом с&nbsp;отличием</b><p>УГТУ-УПИ, 2005, прикладная математика, квалификация «математик-инженер»</p></div>
+      <div class="tile gl"><b>Oracle University</b><p>4 сертификата по&nbsp;Oracle Database, 2008</p></div>
     </div>
   </section>
 
   <section class="s" id="igra">
     <div class="panel gl" style="text-align:center">
       <span class="eyebrow gl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8336F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px;margin-right:6px"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg>Подарок</span>
-      <h2 style="margin-top:18px">Головоломка «Охота на лис» — <b>вам в подарок</b></h2>
-      <p style="color:var(--muted);font-size:18px;max-width:620px;margin:14px auto 0">Логическая игра по мотивам головоломки из «Науки и жизни» 1985 года. Размять голову — пара минут.</p>
-      <div class="ctas"><a class="btn pri" href="https://fox-hunt.github.io" target="_blank" rel="noopener">Играть в браузере</a><a class="btn sec" href="https://t.me/FoxHuntGameBot?startapp" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#2AABEE"/><path d="M5.4 11.8l11.3-4.4c.5-.2 1 .1.8.9l-1.9 9c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-3 5.4-4.9c.2-.2 0-.3-.3-.1l-6.7 4.2-2.9-.9c-.6-.2-.6-.6.1-.8z" fill="#fff"/></svg>Играть в Telegram</a></div>
+      <h2 style="margin-top:18px">Головоломка «Охота на&nbsp;лис»&nbsp;— <b>вам в&nbsp;подарок</b></h2>
+      <p style="color:var(--muted);font-size:18px;max-width:620px;margin:14px auto 0">Логическая игра по&nbsp;мотивам головоломки из&nbsp;«Науки и&nbsp;жизни» 1985 года. Размять голову&nbsp;— пара минут.</p>
+      <div class="ctas"><a class="btn pri" href="https://fox-hunt.github.io" target="_blank" rel="noopener">Играть в&nbsp;браузере</a><a class="btn sec" href="https://t.me/FoxHuntGameBot?startapp" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#2AABEE"/><path d="M5.4 11.8l11.3-4.4c.5-.2 1 .1.8.9l-1.9 9c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-3 5.4-4.9c.2-.2 0-.3-.3-.1l-6.7 4.2-2.9-.9c-.6-.2-.6-.6.1-.8z" fill="#fff"/></svg>Играть в&nbsp;Telegram</a></div>
     </div>
   </section>
 
   <section class="s" id="napisat">
     <div class="contact gl">
-      <h2>Напишите — <b>начнём с ваших вопросов</b></h2>
-      <div class="ctas"><a class="btn pri" href="https://t.me/iLazovich"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#2AABEE"/><path d="M5.4 11.8l11.3-4.4c.5-.2 1 .1.8.9l-1.9 9c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-3 5.4-4.9c.2-.2 0-.3-.3-.1l-6.7 4.2-2.9-.9c-.6-.2-.6-.6.1-.8z" fill="#fff"/></svg>Telegram @iLazovich</a><a class="btn sec" href="https://max.ru/u/f9LHodD0cOLRmERmWN9e_5sJa840lUgTZzcFC5ITc8SusKnVSCs-5UPfiqs" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="mxg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#20C3FF"/><stop offset=".55" stop-color="#3D6BFF"/><stop offset="1" stop-color="#9B3BFF"/></linearGradient></defs><rect width="24" height="24" rx="7" fill="url(#mxg)"/><path d="M12 5.6a6.4 6.4 0 0 0-5.5 9.7l-.8 3 3.1-.8A6.4 6.4 0 1 0 12 5.6zm0 2.6a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6z" fill="#fff"/></svg>MAX</a><span class="btn sec mailbtn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B8336F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg><span class="mail">maltsevaie@gmail.com</span></span></div>
-      <a class="back" href="./">← На главную</a>
+      <h2>Напишите&nbsp;— <b>начнём с&nbsp;ваших вопросов</b></h2>
+      <p>Расскажите, чем занимается компания и&nbsp;что болит сильнее всего. Разбор бесплатный&nbsp;— назову вилку.</p>
+      <div class="ctas"><a class="btn pri" href="https://t.me/iLazovich" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#2AABEE"/><path d="M5.4 11.8l11.3-4.4c.5-.2 1 .1.8.9l-1.9 9c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-3 5.4-4.9c.2-.2 0-.3-.3-.1l-6.7 4.2-2.9-.9c-.6-.2-.6-.6.1-.8z" fill="#fff"/></svg>Telegram @iLazovich</a><a class="btn sec" href="https://max.ru/u/f9LHodD0cOLRmERmWN9e_5sJa840lUgTZzcFC5ITc8SusKnVSCs-5UPfiqs" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="mxc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#20C3FF"/><stop offset=".55" stop-color="#3D6BFF"/><stop offset="1" stop-color="#9B3BFF"/></linearGradient></defs><rect width="24" height="24" rx="7" fill="url(#mxc)"/><path d="M12 5.6a6.4 6.4 0 0 0-5.5 9.7l-.8 3 3.1-.8A6.4 6.4 0 1 0 12 5.6zm0 2.6a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6z" fill="#fff"/></svg>MAX</a><span class="mailrow"><a class="btn sec" href="mailto:maltsevaie@gmail.com"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B8336F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg>maltsevaie@gmail.com</a><button type="button" class="btn sec icbtn" data-copy="maltsevaie@gmail.com" aria-label="Скопировать адрес почты" title="Скопировать адрес почты"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15"/></svg></button></span></div>
+      <a class="back" href="./">← На&nbsp;главную</a>
     </div>
   </section>
 </main>
 
-<footer><a href="./">Главная</a><a href="otdelka.html">Кейс «Отделка»</a><a href="perevozki.html">Кейс «Перевозки»</a><a href="obo-mne.html">Обо мне</a><a href="obo-mne.html#igra">Подарок: головоломка</a><a href="#">ВКонтакте</a><a href="#">Профи.ру</a><a href="#" data-avito>Авито</a><div class="req">ИП Мальцева Ирина Евгеньевна · ОГРНИП 309231530100060 · ИП с 2009 года · работаю по договору, оплата на расчётный счёт</div></footer>
-<div class="modal" id="avm" hidden><div class="mbox gl" role="dialog" aria-modal="true" aria-labelledby="avmt"><button class="mx" type="button" aria-label="Закрыть">×</button><img src="img/avito-card.jpg" alt="Обложка объявления: «Сведу то, что не сходится», Архитектор ERP"><h3 id="avmt">Как найти меня на Авито</h3><p>Ищите карточку с этой обложкой по запросу:</p><span class="btn sec mail">Разработка учётных систем, CRM и Google Таблиц</span><a class="btn pri" href="https://www.avito.ru/moskva/predlozheniya_uslug?q=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D1%83%D1%87%D1%91%D1%82%D0%BD%D1%8B%D1%85%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%2C%20CRM%20%D0%B8%20Google%20%D0%A2%D0%B0%D0%B1%D0%BB%D0%B8%D1%86" target="_blank" rel="noopener">Открыть поиск Авито</a><small>Запрос уже будет в строке поиска. Нажмите на него выше, чтобы скопировать.</small></div></div>
+<footer><a href="./">Главная</a><a href="otdelka.html">Кейс «Отделка»</a><a href="perevozki.html">Кейс «Перевозки»</a><a href="obo-mne.html">Обо мне</a><a href="obo-mne.html#igra">Подарок: головоломка</a><a href="#">ВКонтакте</a><a href="#">Профи.ру</a><a href="#" data-avito>Авито</a><div class="req">ИП&nbsp;Мальцева Ирина Евгеньевна · ОГРНИП 309231530100060 · ИП&nbsp;с&nbsp;2009 года · работаю по&nbsp;договору, оплата на&nbsp;расчётный счёт</div></footer>
+<div class="modal" id="avm" hidden><div class="mbox gl" role="dialog" aria-modal="true" aria-labelledby="avmt"><button class="mx" type="button" aria-label="Закрыть">×</button><img src="img/avito-card.webp" alt="Обложка объявления: «Сведу то, что не сходится», Архитектор ERP" width="320" height="320"><h3 id="avmt">Как найти меня на&nbsp;Авито</h3><p>Ищите карточку с&nbsp;этой обложкой по&nbsp;запросу:</p><span class="btn sec mail">Разработка учётных систем, CRM и&nbsp;Google Таблиц</span><a class="btn pri" href="https://www.avito.ru/moskva/predlozheniya_uslug?q=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D1%83%D1%87%D1%91%D1%82%D0%BD%D1%8B%D1%85%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%2C%20CRM%20%D0%B8%20Google%20%D0%A2%D0%B0%D0%B1%D0%BB%D0%B8%D1%86" target="_blank" rel="noopener">Открыть поиск Авито</a><small>Запрос уже будет в&nbsp;строке поиска. Нажмите на&nbsp;него выше, чтобы скопировать.</small></div></div>
 <script>
 (function(){
   var $=function(x){return document.getElementById(x)};
-  document.querySelectorAll('.burger .drop a').forEach(function(a){a.addEventListener('click',function(){a.closest('details').open=false})});
-  document.querySelectorAll('.mail').forEach(function(el){el.style.cursor='pointer';el.title='Нажмите, чтобы скопировать';el.addEventListener('click',function(){
-    var t=el.textContent.trim();if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){var o=el.textContent;el.textContent='Скопировано';setTimeout(function(){el.textContent=o},1400)},function(){})}})});
+  function nb(s){return s.replace(/(^|[\s(«])([а-яёА-ЯЁ]{1,2}) /g,'$1$2 ').replace(/ —/g,' —')}
+  // меню-бургер: закрыть по пункту и по нажатию мимо
+  var bg=document.querySelector('.burger');
+  document.querySelectorAll('.burger .drop a').forEach(function(a){a.addEventListener('click',function(){bg.open=false})});
+  document.addEventListener('click',function(e){if(bg&&bg.open&&!bg.contains(e.target))bg.open=false});
+  // копирование: [data-copy] — значок рядом с почтой, .mail — запрос Авито
+  function toClip(t,ok){if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,function(){})}
+  document.querySelectorAll('[data-copy]').forEach(function(el){el.addEventListener('click',function(){
+    toClip(el.getAttribute('data-copy'),function(){var o=el.innerHTML;el.innerHTML='✓';el.setAttribute('aria-label','Скопировано');setTimeout(function(){el.innerHTML=o;el.setAttribute('aria-label','Скопировать адрес почты')},1400)})})});
+  document.querySelectorAll('.mail').forEach(function(el){el.style.cursor='pointer';el.title='Нажмите, чтобы скопировать';el.tabIndex=0;el.setAttribute('role','button');
+    var t=el.textContent.replace(/ /g,' ').trim();
+    function go(){toClip(t,function(){el.textContent='Скопировано';setTimeout(function(){el.textContent=t},1400)})}
+    el.addEventListener('click',go);el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}})});
+  var back=null;
   (function(){
     var lb=document.createElement('div');lb.className='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');
     lb.innerHTML='<button class="lb-x" aria-label="Закрыть">×</button><button class="lb-p" aria-label="Назад">‹</button><figure><img alt=""><figcaption></figcaption><div class="lb-th"></div></figure><button class="lb-n" aria-label="Дальше">›</button>';
@@ -358,20 +389,20 @@ button.tile:hover{transform:translateY(-2px)}
     function show(){im.src=set[k][0];im.alt=set[k][1];cap.textContent=set[k][1]+(set.length>1?' · '+(k+1)+' из '+set.length:'');lb.classList.toggle('multi',set.length>1);
       th.innerHTML='';if(set.length>1)set.forEach(function(x,n){var b=document.createElement('button');b.type='button';b.className=n===k?'on':'';b.setAttribute('aria-label',x[1]);var t=document.createElement('img');t.src=x[0];t.alt='';b.appendChild(t);b.addEventListener('click',function(e){e.stopPropagation();k=n;show()});th.appendChild(b)})}
     var sx=null;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});lb.addEventListener('touchend',function(e){if(sx===null||set.length<2)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)step(dx<0?1:-1);sx=null});
-    function lbOpen(a){set=a;k=0;show();lb.classList.add('on');document.body.style.overflow='hidden';lb.querySelector('.lb-x').focus()}
-    function lbClose(){lb.classList.remove('on');document.body.style.overflow=''}
+    function lbOpen(a){back=document.activeElement;set=a;k=0;show();lb.classList.add('on');document.body.style.overflow='hidden';lb.querySelector('.lb-x').focus()}
+    function lbClose(){lb.classList.remove('on');document.body.style.overflow='';if(back&&back.focus)back.focus()}
     function step(d){k=(k+set.length+d)%set.length;show()}
     lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('lb-x'))lbClose()});
     lb.querySelector('.lb-p').addEventListener('click',function(){step(-1)});
     lb.querySelector('.lb-n').addEventListener('click',function(){step(1)});
     document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')lbClose();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
     document.querySelectorAll('[data-shots]').forEach(function(el){el.addEventListener('click',function(){lbOpen(el.getAttribute('data-shots').split(';').map(function(x){return x.split('|')}))})});
-    document.querySelectorAll('.gallery img,.frame img').forEach(function(i){i.addEventListener('click',function(){var f=i.closest('figure'),c=f&&f.querySelector('figcaption');lbOpen([[i.currentSrc||i.src,c?c.textContent:(i.alt||'')]])})});
+    document.querySelectorAll('.gallery img,.frame img,.shot img').forEach(function(i){i.addEventListener('click',function(){var f=i.closest('figure'),c=f&&f.querySelector('figcaption');lbOpen([[i.currentSrc||i.src,c?c.textContent:(i.alt||'')]])})});
   })();
   (function(){
     var m=document.getElementById('avm');if(!m)return;
-    function cl(){m.hidden=true;document.body.style.overflow=''}
-    document.querySelectorAll('[data-avito]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();m.hidden=false;document.body.style.overflow='hidden';m.querySelector('.mx').focus()})});
+    function cl(){m.hidden=true;document.body.style.overflow='';if(back&&back.focus)back.focus()}
+    document.querySelectorAll('[data-avito]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();back=a;m.hidden=false;document.body.style.overflow='hidden';m.querySelector('.mx').focus()})});
     m.addEventListener('click',function(e){if(e.target===m||e.target.classList.contains('mx'))cl()});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)cl()});
   })();
@@ -395,14 +426,14 @@ button.tile:hover{transform:translateY(-2px)}
   var MAX='https://max.ru/u/f9LHodD0cOLRmERmWN9e_5sJa840lUgTZzcFC5ITc8SusKnVSCs-5UPfiqs';
   function from(){try{return new URLSearchParams(location.search).get('from')||''}catch(e){return ''}}
   function r(){
-    if(i<Q.length){$('qbox').hidden=false;$('res').hidden=true;$('ql').textContent='Вопрос '+(i+1)+' из '+Q.length;$('qt').textContent=Q[i].q;
+    if(i<Q.length){$('qbox').hidden=false;$('res').hidden=true;$('ql').textContent='Вопрос '+(i+1)+' из '+Q.length;$('qt').textContent=nb(Q[i].q);
       var d=$('pr').children;for(var k=0;k<d.length;k++)d[k].className=k<=i?'on':'';return}
     $('qbox').hidden=true;$('res').hidden=false;$('note').hidden=true;
     var gaps=Q.filter(function(x,k){return !ans[k]});
     var ul=$('gaps');ul.innerHTML='';
-    gaps.forEach(function(g){var li=document.createElement('li'),b=document.createElement('b'),s=document.createElement('span');b.textContent=g.q;s.textContent=g.why;li.appendChild(b);li.appendChild(s);ul.appendChild(li)});
-    if(gaps.length){$('rt').innerHTML='<b>'+gaps.length+' из '+Q.length+'</b> — без ответа';$('rx').textContent='Каждый такой вопрос — место, где деньги уходят незаметно. Отправьте результаты — посмотрю ваши ответы и скажу, что собрать первым и сколько это будет стоить.'}
-    else{$('rt').innerHTML='Вы знаете <b>всё</b>';$('rx').textContent='Учёт у вас собран. Отправьте результаты — подскажу, куда расти дальше: чтобы это видели менеджер, бригадир и бухгалтер.'}
+    gaps.forEach(function(g){var li=document.createElement('li'),b=document.createElement('b'),s=document.createElement('span');b.textContent=nb(g.q);s.textContent=nb(g.why);li.appendChild(b);li.appendChild(s);ul.appendChild(li)});
+    if(gaps.length){$('rt').innerHTML='<b>'+gaps.length+' из '+Q.length+'</b> — без ответа';$('rx').textContent=nb('Каждый такой вопрос — место, где деньги уходят незаметно. Отправьте результаты — посмотрю ваши ответы и скажу, что собрать первым и сколько это будет стоить.')}
+    else{$('rt').innerHTML='Вы знаете <b>всё</b>';$('rx').textContent=nb('Учёт у вас собран. Отправьте результаты — подскажу, куда расти дальше: чтобы это видели менеджер, бригадир и бухгалтер.')}
     code=ENDPOINT?String(Math.floor(1000+Math.random()*9000)):'';
     msg='Здравствуйте, Ирина! Результаты проверки с сайта'+(code?' (код '+code+')':'')+'.\n'+(gaps.length?'Не знаю ответа:\n'+gaps.map(function(g){return '— '+g.q}).join('\n'):'На все вопросы ответ знаю.')+'\nЧем занимается компания: ';
   }
@@ -421,7 +452,7 @@ button.tile:hover{transform:translateY(-2px)}
     var ch=btn.getAttribute('data-ch');save(ch);copy();
     if(ch==='tg'){go('https://t.me/iLazovich?text='+encodeURIComponent(msg));note('Открыла Telegram — сообщение с ответами уже набрано, осталось нажать «Отправить».')}
     if(ch==='max'){go(MAX);note('Текст с ответами скопирован. В открывшемся MAX вставьте его в чат со мной и отправьте.')}
-    if(ch==='mail'){location.href='mailto:maltsevaie@gmail.com?subject='+encodeURIComponent('Проверка учёта с сайта')+'&body='+encodeURIComponent(msg);note('Открылось письмо с ответами — осталось отправить. Если почта не открылась, нажмите значок копирования и вставьте текст в письмо на maltsevaie@gmail.com.')}
+    if(ch==='mail'){location.href='mailto:maltsevaie@gmail.com?subject='+encodeURIComponent('Проверка учёта с сайта')+'&body='+encodeURIComponent(msg);note('Открылось письмо с ответами — осталось отправить. Если почта не открылась, нажмите «Скопировать текст» и вставьте его в письмо на maltsevaie@gmail.com.')}
   }});
   $('copyMsg').onclick=function(){copy();note('Текст с ответами скопирован — вставьте его в любой мессенджер или письмо.')};
 })();

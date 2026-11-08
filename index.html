@@ -5,9 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ирина · учётные системы для малого бизнеса</title>
 <meta name="description" content="Ирина · Архитектор учётных систем (ERP). Проектирую и собираю учётные системы для малого бизнеса: сметы, смены, зарплата, документы и деньги в одной системе.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap">
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Ирина · Архитектор учётных систем">
+<meta property="og:title" content="Ирина · учётные системы для малого бизнеса">
+<meta property="og:description" content="Ирина · Архитектор учётных систем (ERP). Проектирую и собираю учётные системы для малого бизнеса: сметы, смены, зарплата, документы и деньги в одной системе.">
+<meta property="og:url" content="https://ilazovichgt.github.io/site/">
+<meta property="og:image" content="https://ilazovichgt.github.io/site/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="fonts/manrope-cyr.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Manrope';font-style:normal;font-weight:300 700;font-display:swap;src:url(fonts/manrope-cyr.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Manrope';font-style:normal;font-weight:300 700;font-display:swap;src:url(fonts/manrope-lat.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}
 /* «Жидкое стекло»: живое голубо-розовое сияние позади всей страницы, всё содержимое — на матовом стекле */
 :root{
   --ink:#0B2236; --muted:#3E5466; --soft:#5E7384; --sky:#4CB6EE; --sky2:#8FD3F6; --pink:#F39BCB; --pinkink:#B8336F;
@@ -19,7 +30,7 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.55;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer;color:inherit}
 :focus-visible{outline:2px solid var(--pinkink);outline-offset:3px}
@@ -59,7 +70,7 @@ main,header,footer{position:relative;z-index:1}
 .chip.c{right:3%;bottom:8%;animation:bob 9s ease-in-out infinite}
 .chip.c b{color:var(--pinkink)}
 @keyframes bob{50%{transform:translateY(-10px)}}
-@media (max-width:640px){.stage{padding:64px 0 0}.chip{min-width:0;padding:10px 12px}.chip.a{top:0;left:0}.chip.b{top:0}.chip.c{bottom:4%}}
+@media (max-width:640px){.stage{padding:52px 0 22px}.chip{min-width:0;padding:8px 11px;border-radius:16px}.chip small{font-size:11px}.chip b{font-size:18px}.chip.a{top:0;left:0}.chip.b{top:0}.chip.c{bottom:0;right:-6px}}
 .niche{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:40px}
 .niche span{font-size:14px;padding:8px 14px;border-radius:999px;color:#2C4255}
 
@@ -96,15 +107,12 @@ section.s{padding-top:clamp(96px,12vw,150px)}
 .res h3{font-weight:300;font-size:clamp(34px,5vw,62px);letter-spacing:-.04em;margin-top:12px}
 .res h3 b{font-weight:600}
 .res p{color:var(--muted);font-size:18px;max-width:600px;margin:16px auto 0}
-.again{background:none;border:none;color:var(--soft);padding:12px}
 
 /* кейс */
 .case{display:grid;grid-template-columns:1.5fr 1fr;gap:18px;margin-top:44px}
 .case>*{min-width:0}
 .video{position:relative;display:block;border-radius:30px;padding:10px;margin:0;max-width:100%}
 .video video{width:100%;height:auto;display:block;border-radius:22px;background:#0B2236}
-.video .play{position:absolute;inset:0;display:grid;place-items:center}
-.video .play span{width:86px;height:86px;border-radius:50%;display:grid;place-items:center}
 .video .t{position:absolute;left:26px;top:24px;padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600}
 .facts{display:grid;gap:12px;align-content:start}
 .fact{border-radius:24px;padding:22px}
@@ -138,7 +146,6 @@ section.s{padding-top:clamp(96px,12vw,150px)}
 .contact h2 b{font-weight:600}
 .contact p{color:var(--muted);font-size:18px;max-width:560px;margin:16px auto 0}
 .mail{user-select:all}
-.copy-ok{font-size:14px;color:var(--pinkink);margin-top:10px}
 footer{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:center;padding:36px 0 56px;font-size:14px;color:var(--soft)}
 footer a:hover{color:var(--ink)}
 /* дополнительные блоки для внутренних страниц */
@@ -195,11 +202,12 @@ header{position:sticky;top:calc(10px + env(safe-area-inset-top,0px));z-index:50;
 .burger{display:none;justify-self:end}
 .burger summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.7);border:1px solid var(--edge)}
 .burger summary::-webkit-details-marker{display:none}
-.burger .drop{position:absolute;right:0;top:calc(100% + 8px);display:grid;gap:2px;padding:8px;border-radius:24px;min-width:220px}
+.burger .drop{position:absolute;right:0;top:calc(100% + 12px);display:grid;gap:2px;padding:8px;border-radius:24px;min-width:220px;max-width:calc(100vw - 32px)}
 .burger .drop a{padding:12px 16px;border-radius:16px;font-weight:600}
 .burger .drop a:hover{background:#fff}
-@media (max-width:1060px){.menu{display:none}.nav{grid-template-columns:1fr auto auto}.burger{display:block;position:relative}}
+@media (max-width:1060px){.menu{display:none}.nav{grid-template-columns:1fr auto auto;gap:8px}.burger{display:block;position:relative}}
 @media (max-width:520px){.brand small{display:none}.nav .cta{padding:10px 16px;font-size:14px}}
+@media (max-width:359px){.nav .cta{display:none}}
 .cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:44px}
 .casecard{display:flex;flex-direction:column;border-radius:30px;padding:12px;transition:transform .2s}
 .casecard:hover{transform:translateY(-3px)}
@@ -219,11 +227,6 @@ header{position:sticky;top:calc(10px + env(safe-area-inset-top,0px));z-index:50;
 .gaps li{padding:14px 18px;border-radius:18px;background:var(--glass-hi);border:1px solid var(--edge);display:grid;gap:3px}
 .gaps li b{font-weight:600}
 .gaps li span{font-size:15px;color:var(--muted)}
-.sent{max-width:640px;margin:22px auto 0;border-radius:24px;padding:22px 24px}
-.sent b{font-size:18px;font-weight:600}
-.sent #code{color:var(--pinkink);font-variant-numeric:tabular-nums;letter-spacing:.06em}
-.sent p{font-size:16px!important;margin:10px 0 0!important}
-.sent .ctas{margin-top:16px}
 [hidden]{display:none!important}
 footer .req{flex-basis:100%;text-align:center;font-size:13px;color:var(--soft);margin-top:6px}
 
@@ -238,7 +241,7 @@ button.tile{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%
 button.tile:hover{transform:translateY(-2px)}
 .tile .see{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:var(--pinkink)}
 @media (max-width:900px){.mods{grid-template-columns:1fr}}
-.gallery img,.frame img{cursor:zoom-in}
+.gallery img,.frame img,.shot img{cursor:zoom-in}
 .lb{position:fixed;inset:0;z-index:60;background:rgba(11,34,54,.86);display:none;align-items:center;justify-content:center;padding:64px 16px 24px}
 .lb.on{display:flex}
 .lb figure{margin:0;max-width:min(1500px,100%);text-align:center}
@@ -274,45 +277,61 @@ button.tile:hover{transform:translateY(-2px)}
 .vtabs{margin-top:16px}
 .vtabs .btn{min-height:44px;font-size:15px}
 .vtabs .btn.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* правки после ревью 08.11 */
+.panel>h2{font-weight:300;font-size:clamp(30px,4.4vw,54px);line-height:1.08}
+.panel>h2 b{font-weight:600}
+.mailrow{display:inline-flex;gap:8px}
+.mailrow .icbtn{flex:none}
+@media (max-width:520px){
+  .ctas:not(.vtabs){flex-direction:column;align-items:stretch;max-width:340px;margin-left:auto;margin-right:auto}
+  .ctas:not(.vtabs) .btn{width:100%}
+  .ctas:not(.vtabs) .icbtn{width:50px;flex:none}
+  .mailrow{display:flex}
+  .mailrow>a{flex:1;min-width:0}
+}
+@media (max-width:760px),(hover:none){.aurora i,.chip{animation:none}}
+@media (hover:none) and (pointer:coarse){.lb .lb-p,.lb .lb-n{display:none}}
+@media (max-width:400px){.contact{padding:32px 20px}.mailrow>a{padding:12px;font-size:15px;gap:6px}}
 </style>
 </head>
 <body>
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
-<header><div class="w"><nav class="nav gl" aria-label="Разделы сайта"><a class="brand" href="#top"><img src="img/ira-round.jpg" alt=""><span><b>Ирина</b><small>Архитектор учётных систем (ERP)</small></span></a><div class="menu"><a href="#umeyu">Что умею</a><a href="#proverka">Проверить себя</a><a href="#keisy">Кейсы</a><a href="#kak">Как работаю</a><a href="obo-mne.html">Обо мне</a></div><details class="burger"><summary aria-label="Меню"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><div class="drop gl"><a href="#umeyu">Что умею</a><a href="#proverka">Проверить себя</a><a href="#keisy">Кейсы</a><a href="#kak">Как работаю</a><a href="obo-mne.html">Обо мне</a></div></details><a class="btn pri cta" href="#napisat">Обсудить задачу</a></nav></div></header>
+<header><div class="w"><nav class="nav gl" aria-label="Разделы сайта"><a class="brand" href="#top"><img src="img/ira-round.webp" alt="" width="38" height="38"><span><b>Ирина</b><small>Архитектор учётных систем (ERP)</small></span></a><div class="menu"><a href="#umeyu">Что умею</a><a href="#proverka">Проверить себя</a><a href="#keisy">Кейсы</a><a href="#kak">Как работаю</a><a href="obo-mne.html">Обо мне</a></div><a class="btn pri cta" href="#napisat">Обсудить задачу</a><details class="burger"><summary aria-label="Меню"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><div class="drop gl"><a href="#umeyu">Что умею</a><a href="#proverka">Проверить себя</a><a href="#keisy">Кейсы</a><a href="#kak">Как работаю</a><a href="obo-mne.html">Обо мне</a></div></details></nav></div></header>
 <main class="w" id="top">
   <section class="hero">
-    <span class="eyebrow gl">Учёт и документы для малого бизнеса</span>
-    <h1>Учёт, в котором<br><b>видна каждая копейка</b></h1>
-    <p>Сметы, смены, зарплата, документы и деньги — в одной системе. Собираю её под то, как на самом деле работает ваша компания.</p>
-    <div class="ctas"><a class="btn pri" href="#napisat">Обсудить мой учёт</a><a class="btn sec" href="#proverka">Проверить себя за минуту</a></div>
+    <span class="eyebrow gl">Учёт и&nbsp;документы для малого бизнеса</span>
+    <h1>Учёт, в&nbsp;котором<br><b>видна каждая копейка</b></h1>
+    <p>Сметы, смены, зарплата, документы и&nbsp;деньги&nbsp;— в&nbsp;одной системе. Собираю её&nbsp;под то, как на&nbsp;самом деле работает ваша компания.</p>
+    <div class="ctas"><a class="btn pri" href="#napisat">Обсудить мой учёт</a><a class="btn sec" href="#proverka">Проверить себя за&nbsp;минуту</a></div>
     <div class="stage">
-      <div class="shot gl"><img src="img/d-dash.jpg" alt="Сводка директора: баланс компании, ожидаемые поступления, прибыль с метра"></div>
-      <div class="chip gl a"><small>Прибыль с метра</small><b>371 ₽</b></div>
+      <div class="shot gl"><img src="img/d-dash.webp" alt="Сводка директора: баланс компании, ожидаемые поступления, прибыль с метра" width="1600" height="960"></div>
+      <div class="chip gl a"><small>Прибыль с&nbsp;метра</small><b>371 ₽</b></div>
       <div class="chip gl b"><small>Ждут оплаты</small><b>591 000 ₽</b></div>
-      <div class="chip gl c"><small>Смен на согласовании</small><b>2</b></div>
+      <div class="chip gl c"><small>Смен на&nbsp;согласовании</small><b>2</b></div>
     </div>
-    <div class="niche"><span class="gl">отделка и ремонт</span><span class="gl">монтаж окон и потолков</span><span class="gl">стройка</span><span class="gl">производство</span><span class="gl">перевозки</span><span class="gl">услуги по договорам</span><span class="gl">аренда техники</span></div>
+    <div class="niche"><span class="gl">отделка и&nbsp;ремонт</span><span class="gl">монтаж окон и&nbsp;потолков</span><span class="gl">стройка</span><span class="gl">производство</span><span class="gl">перевозки</span><span class="gl">услуги по&nbsp;договорам</span><span class="gl">аренда техники</span></div>
   </section>
 
   <section class="s" id="umeyu">
-    <div class="head"><span class="eyebrow gl">Что можно собрать</span><h2>Ответы, которые раньше <b>ждали до пятницы</b></h2><p>Начинаю с того, что у вас уже есть: кому-то хватит Google Таблицы, кому-то нужно приложение для компьютера и телефона.</p></div>
+    <div class="head"><span class="eyebrow gl">Что можно собрать</span><h2>Ответы, которые раньше <b>ждали до&nbsp;пятницы</b></h2><p>Начинаю с&nbsp;того, что у&nbsp;вас уже есть: кому-то хватит Google Таблицы, кому-то нужно приложение для компьютера и&nbsp;телефона.</p></div>
     <div class="feats">
-      <div class="feat gl"><div class="txt"><div class="num">ДЕНЬГИ</div><h3>Прибыль заказа видна до начала работ</h3><p>Смета сразу считает себестоимость и прибыль — убыточный заказ видно до того, как вы за него взялись.</p></div><div class="frame"><img src="img/c-econ.jpg" alt="Экономика объекта по смете: себестоимость, прибыль, прибыль на метр" loading="lazy"></div></div>
-      <div class="feat gl rev"><div class="txt"><div class="num">ДОКУМЕНТЫ</div><h3>Договор, счёт и акт — в один клик</h3><p>Реквизиты вносятся один раз. PDF сразу с подписью, печатью и QR-кодом для оплаты — без копирования прошлых файлов.</p></div><div class="frame"><img src="img/tr-pdf.jpg" alt="Счёт в PDF с подписью, печатью и QR-кодом" loading="lazy"></div></div>
-      <div class="feat gl"><div class="txt"><div class="num">ОПЛАТЫ</div><h3>Кто не заплатил — видно сразу</h3><p>Счёт ждёт оплаты дольше двух недель — красная метка и отдельный список. Сводка за месяц и год собирается сама.</p></div><div class="frame"><img src="img/tr-debt.jpg" alt="Сводка: выставлено, оплачено, ждёт оплаты" loading="lazy"></div></div>
-      <div class="feat gl rev"><div class="txt"><div class="num">ТЕЛЕФОН</div><h3>Работает с телефона</h3><p>Бригадир сдаёт смену на объекте, менеджер выставляет счёт в дороге. Иконка на экране, вход по коду.</p></div><div class="phones"><img src="img/m-fore-form.jpg" alt="Сдача смены с телефона" loading="lazy"><img src="img/m-dir-dash.jpg" alt="Сводка директора на телефоне" loading="lazy"></div></div>
-      <div class="feat gl"><div class="txt"><div class="num">КОНТРОЛЬ</div><h3>Перерасход виден до зарплаты</h3><p>Смена дороже нормы уходит директору на согласование. Переплата не попадает в расчётный лист незаметно.</p></div><div class="frame"><img src="img/c-redshift.jpg" alt="Смена на согласовании: зарплата на метр выше норматива" loading="lazy"></div></div>
+      <div class="feat gl"><div class="txt"><div class="num">ДЕНЬГИ</div><h3>Прибыль заказа видна до&nbsp;начала работ</h3><p>Смета сразу считает себестоимость и&nbsp;прибыль&nbsp;— убыточный заказ видно до&nbsp;того, как вы&nbsp;за&nbsp;него взялись.</p></div><div class="frame"><img src="img/c-econ.webp" alt="Экономика объекта по смете: себестоимость, прибыль, прибыль на метр" loading="lazy" width="1200" height="403"></div></div>
+      <div class="feat gl rev"><div class="txt"><div class="num">ДОКУМЕНТЫ</div><h3>Договор, счёт и&nbsp;акт&nbsp;— в&nbsp;один клик</h3><p>Реквизиты вносятся один раз. PDF сразу с&nbsp;подписью, печатью и&nbsp;QR-кодом для оплаты&nbsp;— без копирования прошлых файлов.</p></div><div class="frame"><img src="img/tr-pdf.webp" alt="Счёт в PDF с подписью, печатью и QR-кодом" loading="lazy" width="1400" height="880"></div></div>
+      <div class="feat gl"><div class="txt"><div class="num">ОПЛАТЫ</div><h3>Кто не&nbsp;заплатил&nbsp;— видно сразу</h3><p>Счёт ждёт оплаты дольше двух недель&nbsp;— красная метка и&nbsp;отдельный список. Сводка за&nbsp;месяц и&nbsp;год собирается сама.</p></div><div class="frame"><img src="img/tr-debt.webp" alt="Сводка: выставлено, оплачено, ждёт оплаты" loading="lazy" width="1400" height="880"></div></div>
+      <div class="feat gl rev"><div class="txt"><div class="num">ТЕЛЕФОН</div><h3>Работает с&nbsp;телефона</h3><p>Бригадир сдаёт смену на&nbsp;объекте, менеджер выставляет счёт в&nbsp;дороге. Иконка на&nbsp;экране, вход по&nbsp;коду.</p></div><div class="phones"><img src="img/m-fore-form.webp" alt="Сдача смены с телефона" loading="lazy" width="420" height="909"><img src="img/m-dir-dash.webp" alt="Сводка директора на телефоне" loading="lazy" width="420" height="909"></div></div>
+      <div class="feat gl"><div class="txt"><div class="num">КОНТРОЛЬ</div><h3>Перерасход виден до&nbsp;зарплаты</h3><p>Смена дороже нормы уходит директору на&nbsp;согласование. Переплата не&nbsp;попадает в&nbsp;расчётный лист незаметно.</p></div><div class="frame"><img src="img/c-redshift.webp" alt="Смена на согласовании: зарплата на метр выше норматива" loading="lazy" width="1200" height="161"></div></div>
     </div>
-    <p class="demo">На всех экранах — демонстрационные данные.</p>
+    <p class="demo">На&nbsp;всех экранах&nbsp;— демонстрационные данные.</p>
   </section>
 
   <section class="s" id="proverka">
-    <div class="head"><span class="eyebrow gl">Проверьте себя за минуту</span><h2>Пять вопросов <b>с первой встречи</b></h2><p>Отвечайте честно — этого никто не видит.</p></div>
+    <div class="head"><span class="eyebrow gl">Проверьте себя за&nbsp;минуту</span><h2>Пять вопросов <b>с&nbsp;первой встречи</b></h2></div>
     <div class="quiz gl">
       <div id="qbox">
-        <div class="lbl" id="ql">Вопрос 1 из 5</div>
-        <div class="q" id="qt">Какой объект или заказ в прошлом месяце заработал вам меньше всех?</div>
-        <div class="ctas"><button class="btn pri" id="yes">Знаю за минуту</button><button class="btn sec" id="no">Надо выяснять</button></div>
+        <div class="lbl" id="ql">Вопрос 1 из&nbsp;5</div>
+        <div class="q" id="qt">Какой объект или заказ в&nbsp;прошлом месяце заработал вам меньше всех?</div>
+        <div class="ctas"><button class="btn pri" id="yes">Знаю за&nbsp;минуту</button><button class="btn sec" id="no">Надо выяснять</button></div>
         <div class="prog" id="pr" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div>
       </div>
       <div class="res" id="res" hidden>
@@ -325,7 +344,7 @@ button.tile:hover{transform:translateY(-2px)}
           <button class="btn pri" data-ch="tg"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#2AABEE"/><path d="M5.4 11.8l11.3-4.4c.5-.2 1 .1.8.9l-1.9 9c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-3 5.4-4.9c.2-.2 0-.3-.3-.1l-6.7 4.2-2.9-.9c-.6-.2-.6-.6.1-.8z" fill="#fff"/></svg>Telegram</button>
           <button class="btn sec" data-ch="max"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="mxq" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#20C3FF"/><stop offset=".55" stop-color="#3D6BFF"/><stop offset="1" stop-color="#9B3BFF"/></linearGradient></defs><rect width="24" height="24" rx="7" fill="url(#mxq)"/><path d="M12 5.6a6.4 6.4 0 0 0-5.5 9.7l-.8 3 3.1-.8A6.4 6.4 0 1 0 12 5.6zm0 2.6a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6z" fill="#fff"/></svg>MAX</button>
           <button class="btn sec" data-ch="mail"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B8336F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg>Почта</button>
-          <button class="btn sec icbtn" id="copyMsg" aria-label="Скопировать текст с ответами" title="Скопировать текст с ответами"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15"/></svg></button>
+          <button class="btn sec" id="copyMsg"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15"/></svg>Скопировать текст</button>
         </div>
         <p class="note" id="note" hidden></p>
         <div class="ctas"><button class="btn sec" id="ag"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4.5h4.5"/></svg>Пройти заново</button></div>
@@ -336,29 +355,29 @@ button.tile:hover{transform:translateY(-2px)}
   <section class="s" id="keisy">
     <div class="head"><span class="eyebrow gl">Кейсы</span><h2>Системы, которые <b>уже работают</b></h2></div>
     <div class="cases">
-      <a class="casecard gl" href="otdelka.html"><img src="img/d-obj-smeta.jpg" alt="Карточка объекта со сметой" loading="lazy"><div class="in"><span class="tag">ОТДЕЛКА И СТРОЙКА</span><h3>Подрядчик по стяжке и штукатурке: учёт от замера до зарплаты</h3><p>Прибыль объекта видна до начала работ: сметы, смены бригад, зарплата и деньги — в одной системе.</p><div class="nums"><span>7 ролей</span><span>7 типов документов</span><span>с июля каждый день</span></div><span class="go">Смотреть кейс →</span></div></a>
-      <a class="casecard gl" href="perevozki.html"><img src="img/tr-app.jpg" alt="Приложение документооборота: счета и акты" loading="lazy"><div class="in"><span class="tag">ПЕРЕВОЗКИ · ДОКУМЕНТЫ</span><h3>Транспортная компания: из папок с копиями — в приложение в телефоне</h3><p>Договор, счёт, акт и акт приёмки — без копирования старых файлов.</p><div class="nums"><span>22 контрагента</span><span>87 документов</span><span>таблица → приложение</span></div><span class="go">Смотреть кейс →</span></div></a>
+      <a class="casecard gl" href="otdelka.html"><img src="img/d-obj-smeta.webp" alt="Карточка объекта со сметой" loading="lazy" width="1200" height="650"><div class="in"><span class="tag">ОТДЕЛКА И&nbsp;СТРОЙКА</span><h3>Подрядчик по&nbsp;стяжке и&nbsp;штукатурке: учёт от&nbsp;замера до&nbsp;зарплаты</h3><p>Прибыль объекта видна до&nbsp;начала работ: сметы, смены бригад, зарплата и&nbsp;деньги&nbsp;— в&nbsp;одной системе.</p><div class="nums"><span>7 ролей</span><span>7 типов документов</span><span>с&nbsp;июля каждый день</span></div><span class="go">Смотреть кейс →</span></div></a>
+      <a class="casecard gl" href="perevozki.html"><img src="img/tr-app.webp" alt="Приложение документооборота: счета и акты" loading="lazy" width="1400" height="880"><div class="in"><span class="tag">ПЕРЕВОЗКИ · ДОКУМЕНТЫ</span><h3>Транспортная компания: из&nbsp;папок с&nbsp;копиями&nbsp;— в&nbsp;приложение в&nbsp;телефоне</h3><p>Договор, счёт, акт и&nbsp;акт приёмки&nbsp;— без копирования старых файлов.</p><div class="nums"><span>22 контрагента</span><span>87 документов</span><span>таблица → приложение</span></div><span class="go">Смотреть кейс →</span></div></a>
     </div>
   </section>
 
   <section class="s" id="kak">
-    <div class="head"><span class="eyebrow gl">Как работаю</span><h2>Цену и срок называю до старта, <b>и они не меняются</b></h2><p>Если для вашего дела у меня есть готовое решение — настрою его под вас. Если нет — соберу систему с нуля под ваш порядок работы.</p></div>
+    <div class="head"><span class="eyebrow gl">Как работаю</span><h2>Цену и&nbsp;срок называю до&nbsp;старта, <b>и&nbsp;они не&nbsp;меняются</b></h2><p>Если для вашего дела у&nbsp;меня есть готовое решение&nbsp;— настрою его под вас. Если нет&nbsp;— соберу систему с&nbsp;нуля под ваш порядок работы.</p></div>
     <div class="steps2">
-      <div class="step gl"><em>ШАГ 1 · БЕСПЛАТНО</em><h3>Разбор</h3><p>Разбираемся, как устроен ваш учёт и где теряются деньги. Называю вилку.</p></div>
-      <div class="step gl"><em>ШАГ 2</em><h3>Обследование</h3><p>План решения и ТЗ, точная цена и срок. Засчитывается в разработку.</p></div>
-      <div class="step gl"><em>ШАГ 3</em><h3>Сборка и запуск</h3><p>Собираю, внедряю, обучаю людей. Можно начать с одного участка.</p></div>
+      <div class="step gl"><em>ШАГ 1 · БЕСПЛАТНО</em><h3>Разбор</h3><p>Разбираемся, как устроен ваш учёт и&nbsp;где теряются деньги. Называю вилку.</p></div>
+      <div class="step gl"><em>ШАГ 2</em><h3>Обследование</h3><p>План решения и&nbsp;ТЗ, точная цена и&nbsp;срок. Засчитывается в&nbsp;разработку.</p></div>
+      <div class="step gl"><em>ШАГ 3</em><h3>Сборка и&nbsp;запуск</h3><p>Собираю, внедряю, обучаю людей. Можно начать с&nbsp;одного участка.</p></div>
     </div>
-    <div class="budget gl">Не обязательно начинать с большой системы. <b>Скажите бюджет</b> — покажу, что можно собрать на эти деньги.</div>
-    <div class="trust"><span class="gl">Данные и доступы ваши</span><span class="gl">Можно разместить в России</span><span class="gl">ИП с 2009 года, договор</span><span class="gl">Не вместо 1С — выгрузка бухгалтеру</span></div>
+    <div class="budget gl">Не&nbsp;обязательно начинать с&nbsp;большой системы. <b>Скажите бюджет</b>&nbsp;— покажу, что можно собрать на&nbsp;эти деньги.</div>
+    <div class="trust"><span class="gl">Данные и&nbsp;доступы ваши</span><span class="gl">Можно разместить в&nbsp;России</span><span class="gl">ИП&nbsp;с&nbsp;2009 года, договор</span><span class="gl">Не&nbsp;вместо 1С&nbsp;— выгрузка бухгалтеру</span></div>
   </section>
 
   <section class="s" id="obo-mne">
     <div class="about gl">
-      <img src="img/ira-round.jpg" alt="Ирина">
+      <img src="img/ira-round.webp" alt="Ирина" width="360" height="360">
       <div class="txt">
         <span class="eyebrow gl">Обо мне</span>
         <h2 style="margin-top:14px">Ирина · <b>Архитектор учётных систем</b> (ERP)</h2>
-        <p>Проектирую и собираю учётные системы для малого бизнеса. По профессии — инженер-программист, по образованию — прикладная математика, диплом с отличием. В Газпром бурении проектировала базы данных и видела внедрение большой ERP изнутри, со стороны заказчика. Поэтому начинаю с того, как работают ваши люди, а не с программы.</p>
+        <p>Проектирую и&nbsp;собираю учётные системы для малого бизнеса. По&nbsp;профессии&nbsp;— инженер-программист, по&nbsp;образованию&nbsp;— прикладная математика, диплом с&nbsp;отличием. В&nbsp;Газпром бурении проектировала базы данных и&nbsp;видела внедрение большой ERP изнутри, со&nbsp;стороны заказчика. Поэтому начинаю с&nbsp;того, как работают ваши люди, а&nbsp;не&nbsp;с&nbsp;программы.</p>
         <a href="obo-mne.html">Подробнее обо мне →</a>
       </div>
     </div>
@@ -366,21 +385,32 @@ button.tile:hover{transform:translateY(-2px)}
 
   <section class="s" id="napisat">
     <div class="contact gl">
-      <h2>Сведу то, что <b>не сходится</b></h2>
-      <p>Расскажите, как у вас устроен учёт. Первый разговор бесплатный: чем занимается компания, сколько человек и что болит сильнее всего.</p>
-      <div class="ctas"><a class="btn pri" href="https://t.me/iLazovich"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#2AABEE"/><path d="M5.4 11.8l11.3-4.4c.5-.2 1 .1.8.9l-1.9 9c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-3 5.4-4.9c.2-.2 0-.3-.3-.1l-6.7 4.2-2.9-.9c-.6-.2-.6-.6.1-.8z" fill="#fff"/></svg>Telegram @iLazovich</a><a class="btn sec" href="https://max.ru/u/f9LHodD0cOLRmERmWN9e_5sJa840lUgTZzcFC5ITc8SusKnVSCs-5UPfiqs" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="mxg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#20C3FF"/><stop offset=".55" stop-color="#3D6BFF"/><stop offset="1" stop-color="#9B3BFF"/></linearGradient></defs><rect width="24" height="24" rx="7" fill="url(#mxg)"/><path d="M12 5.6a6.4 6.4 0 0 0-5.5 9.7l-.8 3 3.1-.8A6.4 6.4 0 1 0 12 5.6zm0 2.6a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6z" fill="#fff"/></svg>MAX</a><span class="btn sec mailbtn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B8336F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg><span class="mail">maltsevaie@gmail.com</span></span></div>
+      <h2>Сведу то, что <b>не&nbsp;сходится</b></h2>
+      <p>Расскажите, как у&nbsp;вас устроен учёт. Разбор бесплатный: чем занимается компания, сколько человек и&nbsp;что болит сильнее всего.</p>
+      <div class="ctas"><a class="btn pri" href="https://t.me/iLazovich" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#2AABEE"/><path d="M5.4 11.8l11.3-4.4c.5-.2 1 .1.8.9l-1.9 9c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-3 5.4-4.9c.2-.2 0-.3-.3-.1l-6.7 4.2-2.9-.9c-.6-.2-.6-.6.1-.8z" fill="#fff"/></svg>Telegram @iLazovich</a><a class="btn sec" href="https://max.ru/u/f9LHodD0cOLRmERmWN9e_5sJa840lUgTZzcFC5ITc8SusKnVSCs-5UPfiqs" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="mxc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#20C3FF"/><stop offset=".55" stop-color="#3D6BFF"/><stop offset="1" stop-color="#9B3BFF"/></linearGradient></defs><rect width="24" height="24" rx="7" fill="url(#mxc)"/><path d="M12 5.6a6.4 6.4 0 0 0-5.5 9.7l-.8 3 3.1-.8A6.4 6.4 0 1 0 12 5.6zm0 2.6a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6z" fill="#fff"/></svg>MAX</a><span class="mailrow"><a class="btn sec" href="mailto:maltsevaie@gmail.com"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B8336F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg>maltsevaie@gmail.com</a><button type="button" class="btn sec icbtn" data-copy="maltsevaie@gmail.com" aria-label="Скопировать адрес почты" title="Скопировать адрес почты"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15"/></svg></button></span></div>
     </div>
   </section>
 </main>
 
-<footer><a href="./">Главная</a><a href="otdelka.html">Кейс «Отделка»</a><a href="perevozki.html">Кейс «Перевозки»</a><a href="obo-mne.html">Обо мне</a><a href="obo-mne.html#igra">Подарок: головоломка</a><a href="#">ВКонтакте</a><a href="#">Профи.ру</a><a href="#" data-avito>Авито</a><div class="req">ИП Мальцева Ирина Евгеньевна · ОГРНИП 309231530100060 · ИП с 2009 года · работаю по договору, оплата на расчётный счёт</div></footer>
-<div class="modal" id="avm" hidden><div class="mbox gl" role="dialog" aria-modal="true" aria-labelledby="avmt"><button class="mx" type="button" aria-label="Закрыть">×</button><img src="img/avito-card.jpg" alt="Обложка объявления: «Сведу то, что не сходится», Архитектор ERP"><h3 id="avmt">Как найти меня на Авито</h3><p>Ищите карточку с этой обложкой по запросу:</p><span class="btn sec mail">Разработка учётных систем, CRM и Google Таблиц</span><a class="btn pri" href="https://www.avito.ru/moskva/predlozheniya_uslug?q=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D1%83%D1%87%D1%91%D1%82%D0%BD%D1%8B%D1%85%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%2C%20CRM%20%D0%B8%20Google%20%D0%A2%D0%B0%D0%B1%D0%BB%D0%B8%D1%86" target="_blank" rel="noopener">Открыть поиск Авито</a><small>Запрос уже будет в строке поиска. Нажмите на него выше, чтобы скопировать.</small></div></div>
+<footer><a href="./">Главная</a><a href="otdelka.html">Кейс «Отделка»</a><a href="perevozki.html">Кейс «Перевозки»</a><a href="obo-mne.html">Обо мне</a><a href="obo-mne.html#igra">Подарок: головоломка</a><a href="#">ВКонтакте</a><a href="#">Профи.ру</a><a href="#" data-avito>Авито</a><div class="req">ИП&nbsp;Мальцева Ирина Евгеньевна · ОГРНИП 309231530100060 · ИП&nbsp;с&nbsp;2009 года · работаю по&nbsp;договору, оплата на&nbsp;расчётный счёт</div></footer>
+<div class="modal" id="avm" hidden><div class="mbox gl" role="dialog" aria-modal="true" aria-labelledby="avmt"><button class="mx" type="button" aria-label="Закрыть">×</button><img src="img/avito-card.webp" alt="Обложка объявления: «Сведу то, что не сходится», Архитектор ERP" width="320" height="320"><h3 id="avmt">Как найти меня на&nbsp;Авито</h3><p>Ищите карточку с&nbsp;этой обложкой по&nbsp;запросу:</p><span class="btn sec mail">Разработка учётных систем, CRM и&nbsp;Google Таблиц</span><a class="btn pri" href="https://www.avito.ru/moskva/predlozheniya_uslug?q=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D1%83%D1%87%D1%91%D1%82%D0%BD%D1%8B%D1%85%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%2C%20CRM%20%D0%B8%20Google%20%D0%A2%D0%B0%D0%B1%D0%BB%D0%B8%D1%86" target="_blank" rel="noopener">Открыть поиск Авито</a><small>Запрос уже будет в&nbsp;строке поиска. Нажмите на&nbsp;него выше, чтобы скопировать.</small></div></div>
 <script>
 (function(){
   var $=function(x){return document.getElementById(x)};
-  document.querySelectorAll('.burger .drop a').forEach(function(a){a.addEventListener('click',function(){a.closest('details').open=false})});
-  document.querySelectorAll('.mail').forEach(function(el){el.style.cursor='pointer';el.title='Нажмите, чтобы скопировать';el.addEventListener('click',function(){
-    var t=el.textContent.trim();if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){var o=el.textContent;el.textContent='Скопировано';setTimeout(function(){el.textContent=o},1400)},function(){})}})});
+  function nb(s){return s.replace(/(^|[\s(«])([а-яёА-ЯЁ]{1,2}) /g,'$1$2 ').replace(/ —/g,' —')}
+  // меню-бургер: закрыть по пункту и по нажатию мимо
+  var bg=document.querySelector('.burger');
+  document.querySelectorAll('.burger .drop a').forEach(function(a){a.addEventListener('click',function(){bg.open=false})});
+  document.addEventListener('click',function(e){if(bg&&bg.open&&!bg.contains(e.target))bg.open=false});
+  // копирование: [data-copy] — значок рядом с почтой, .mail — запрос Авито
+  function toClip(t,ok){if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,function(){})}
+  document.querySelectorAll('[data-copy]').forEach(function(el){el.addEventListener('click',function(){
+    toClip(el.getAttribute('data-copy'),function(){var o=el.innerHTML;el.innerHTML='✓';el.setAttribute('aria-label','Скопировано');setTimeout(function(){el.innerHTML=o;el.setAttribute('aria-label','Скопировать адрес почты')},1400)})})});
+  document.querySelectorAll('.mail').forEach(function(el){el.style.cursor='pointer';el.title='Нажмите, чтобы скопировать';el.tabIndex=0;el.setAttribute('role','button');
+    var t=el.textContent.replace(/ /g,' ').trim();
+    function go(){toClip(t,function(){el.textContent='Скопировано';setTimeout(function(){el.textContent=t},1400)})}
+    el.addEventListener('click',go);el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}})});
+  var back=null;
   (function(){
     var lb=document.createElement('div');lb.className='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');
     lb.innerHTML='<button class="lb-x" aria-label="Закрыть">×</button><button class="lb-p" aria-label="Назад">‹</button><figure><img alt=""><figcaption></figcaption><div class="lb-th"></div></figure><button class="lb-n" aria-label="Дальше">›</button>';
@@ -390,20 +420,20 @@ button.tile:hover{transform:translateY(-2px)}
     function show(){im.src=set[k][0];im.alt=set[k][1];cap.textContent=set[k][1]+(set.length>1?' · '+(k+1)+' из '+set.length:'');lb.classList.toggle('multi',set.length>1);
       th.innerHTML='';if(set.length>1)set.forEach(function(x,n){var b=document.createElement('button');b.type='button';b.className=n===k?'on':'';b.setAttribute('aria-label',x[1]);var t=document.createElement('img');t.src=x[0];t.alt='';b.appendChild(t);b.addEventListener('click',function(e){e.stopPropagation();k=n;show()});th.appendChild(b)})}
     var sx=null;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});lb.addEventListener('touchend',function(e){if(sx===null||set.length<2)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)step(dx<0?1:-1);sx=null});
-    function lbOpen(a){set=a;k=0;show();lb.classList.add('on');document.body.style.overflow='hidden';lb.querySelector('.lb-x').focus()}
-    function lbClose(){lb.classList.remove('on');document.body.style.overflow=''}
+    function lbOpen(a){back=document.activeElement;set=a;k=0;show();lb.classList.add('on');document.body.style.overflow='hidden';lb.querySelector('.lb-x').focus()}
+    function lbClose(){lb.classList.remove('on');document.body.style.overflow='';if(back&&back.focus)back.focus()}
     function step(d){k=(k+set.length+d)%set.length;show()}
     lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('lb-x'))lbClose()});
     lb.querySelector('.lb-p').addEventListener('click',function(){step(-1)});
     lb.querySelector('.lb-n').addEventListener('click',function(){step(1)});
     document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')lbClose();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
     document.querySelectorAll('[data-shots]').forEach(function(el){el.addEventListener('click',function(){lbOpen(el.getAttribute('data-shots').split(';').map(function(x){return x.split('|')}))})});
-    document.querySelectorAll('.gallery img,.frame img').forEach(function(i){i.addEventListener('click',function(){var f=i.closest('figure'),c=f&&f.querySelector('figcaption');lbOpen([[i.currentSrc||i.src,c?c.textContent:(i.alt||'')]])})});
+    document.querySelectorAll('.gallery img,.frame img,.shot img').forEach(function(i){i.addEventListener('click',function(){var f=i.closest('figure'),c=f&&f.querySelector('figcaption');lbOpen([[i.currentSrc||i.src,c?c.textContent:(i.alt||'')]])})});
   })();
   (function(){
     var m=document.getElementById('avm');if(!m)return;
-    function cl(){m.hidden=true;document.body.style.overflow=''}
-    document.querySelectorAll('[data-avito]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();m.hidden=false;document.body.style.overflow='hidden';m.querySelector('.mx').focus()})});
+    function cl(){m.hidden=true;document.body.style.overflow='';if(back&&back.focus)back.focus()}
+    document.querySelectorAll('[data-avito]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();back=a;m.hidden=false;document.body.style.overflow='hidden';m.querySelector('.mx').focus()})});
     m.addEventListener('click',function(e){if(e.target===m||e.target.classList.contains('mx'))cl()});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)cl()});
   })();
@@ -427,14 +457,14 @@ button.tile:hover{transform:translateY(-2px)}
   var MAX='https://max.ru/u/f9LHodD0cOLRmERmWN9e_5sJa840lUgTZzcFC5ITc8SusKnVSCs-5UPfiqs';
   function from(){try{return new URLSearchParams(location.search).get('from')||''}catch(e){return ''}}
   function r(){
-    if(i<Q.length){$('qbox').hidden=false;$('res').hidden=true;$('ql').textContent='Вопрос '+(i+1)+' из '+Q.length;$('qt').textContent=Q[i].q;
+    if(i<Q.length){$('qbox').hidden=false;$('res').hidden=true;$('ql').textContent='Вопрос '+(i+1)+' из '+Q.length;$('qt').textContent=nb(Q[i].q);
       var d=$('pr').children;for(var k=0;k<d.length;k++)d[k].className=k<=i?'on':'';return}
     $('qbox').hidden=true;$('res').hidden=false;$('note').hidden=true;
     var gaps=Q.filter(function(x,k){return !ans[k]});
     var ul=$('gaps');ul.innerHTML='';
-    gaps.forEach(function(g){var li=document.createElement('li'),b=document.createElement('b'),s=document.createElement('span');b.textContent=g.q;s.textContent=g.why;li.appendChild(b);li.appendChild(s);ul.appendChild(li)});
-    if(gaps.length){$('rt').innerHTML='<b>'+gaps.length+' из '+Q.length+'</b> — без ответа';$('rx').textContent='Каждый такой вопрос — место, где деньги уходят незаметно. Отправьте результаты — посмотрю ваши ответы и скажу, что собрать первым и сколько это будет стоить.'}
-    else{$('rt').innerHTML='Вы знаете <b>всё</b>';$('rx').textContent='Учёт у вас собран. Отправьте результаты — подскажу, куда расти дальше: чтобы это видели менеджер, бригадир и бухгалтер.'}
+    gaps.forEach(function(g){var li=document.createElement('li'),b=document.createElement('b'),s=document.createElement('span');b.textContent=nb(g.q);s.textContent=nb(g.why);li.appendChild(b);li.appendChild(s);ul.appendChild(li)});
+    if(gaps.length){$('rt').innerHTML='<b>'+gaps.length+' из '+Q.length+'</b> — без ответа';$('rx').textContent=nb('Каждый такой вопрос — место, где деньги уходят незаметно. Отправьте результаты — посмотрю ваши ответы и скажу, что собрать первым и сколько это будет стоить.')}
+    else{$('rt').innerHTML='Вы знаете <b>всё</b>';$('rx').textContent=nb('Учёт у вас собран. Отправьте результаты — подскажу, куда расти дальше: чтобы это видели менеджер, бригадир и бухгалтер.')}
     code=ENDPOINT?String(Math.floor(1000+Math.random()*9000)):'';
     msg='Здравствуйте, Ирина! Результаты проверки с сайта'+(code?' (код '+code+')':'')+'.\n'+(gaps.length?'Не знаю ответа:\n'+gaps.map(function(g){return '— '+g.q}).join('\n'):'На все вопросы ответ знаю.')+'\nЧем занимается компания: ';
   }
@@ -453,7 +483,7 @@ button.tile:hover{transform:translateY(-2px)}
     var ch=btn.getAttribute('data-ch');save(ch);copy();
     if(ch==='tg'){go('https://t.me/iLazovich?text='+encodeURIComponent(msg));note('Открыла Telegram — сообщение с ответами уже набрано, осталось нажать «Отправить».')}
     if(ch==='max'){go(MAX);note('Текст с ответами скопирован. В открывшемся MAX вставьте его в чат со мной и отправьте.')}
-    if(ch==='mail'){location.href='mailto:maltsevaie@gmail.com?subject='+encodeURIComponent('Проверка учёта с сайта')+'&body='+encodeURIComponent(msg);note('Открылось письмо с ответами — осталось отправить. Если почта не открылась, нажмите значок копирования и вставьте текст в письмо на maltsevaie@gmail.com.')}
+    if(ch==='mail'){location.href='mailto:maltsevaie@gmail.com?subject='+encodeURIComponent('Проверка учёта с сайта')+'&body='+encodeURIComponent(msg);note('Открылось письмо с ответами — осталось отправить. Если почта не открылась, нажмите «Скопировать текст» и вставьте его в письмо на maltsevaie@gmail.com.')}
   }});
   $('copyMsg').onclick=function(){copy();note('Текст с ответами скопирован — вставьте его в любой мессенджер или письмо.')};
 })();
