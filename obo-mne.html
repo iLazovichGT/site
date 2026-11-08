@@ -254,6 +254,9 @@ button.tile:hover{transform:translateY(-2px)}
 .lb button{position:absolute;background:rgba(255,255,255,.16);color:#fff;border:0;border-radius:50%;width:48px;height:48px;font-size:26px;line-height:1;cursor:pointer}
 .lb .lb-x{top:12px;right:12px}.lb .lb-p{left:10px;top:50%}.lb .lb-n{right:10px;top:50%}
 .lb:not(.multi) .lb-p,.lb:not(.multi) .lb-n{display:none}
+
+.icbtn{width:50px;padding:0}
+.quiz .note{margin:14px auto 0;max-width:560px;font-size:15px;color:var(--ink);background:var(--glass-hi);border:1px solid var(--edge);border-radius:16px;padding:12px 16px}
 </style>
 </head>
 <body>
@@ -346,32 +349,38 @@ button.tile:hover{transform:translateY(-2px)}
     {q:'Сколько вы зарабатываете с одного метра или одного заказа?',why:'Без этой цифры цена следующего заказа — догадка.'}
   ];
   var i=0,ans=[],msg='',code='';
+  var MAX='https://max.ru/u/f9LHodD0cOLRmERmWN9e_5sJa840lUgTZzcFC5ITc8SusKnVSCs-5UPfiqs';
   function from(){try{return new URLSearchParams(location.search).get('from')||''}catch(e){return ''}}
   function r(){
     if(i<Q.length){$('qbox').hidden=false;$('res').hidden=true;$('ql').textContent='Вопрос '+(i+1)+' из '+Q.length;$('qt').textContent=Q[i].q;
       var d=$('pr').children;for(var k=0;k<d.length;k++)d[k].className=k<=i?'on':'';return}
-    $('qbox').hidden=true;$('res').hidden=false;$('sent').hidden=true;$('sendRow').hidden=false;
+    $('qbox').hidden=true;$('res').hidden=false;$('note').hidden=true;
     var gaps=Q.filter(function(x,k){return !ans[k]});
     var ul=$('gaps');ul.innerHTML='';
     gaps.forEach(function(g){var li=document.createElement('li'),b=document.createElement('b'),s=document.createElement('span');b.textContent=g.q;s.textContent=g.why;li.appendChild(b);li.appendChild(s);ul.appendChild(li)});
     if(gaps.length){$('rt').innerHTML='<b>'+gaps.length+' из '+Q.length+'</b> — без ответа';$('rx').textContent='Каждый такой вопрос — место, где деньги уходят незаметно. Отправьте результаты — посмотрю ваши ответы и скажу, что собрать первым и сколько это будет стоить.'}
     else{$('rt').innerHTML='Вы знаете <b>всё</b>';$('rx').textContent='Учёт у вас собран. Отправьте результаты — подскажу, куда расти дальше: чтобы это видели менеджер, бригадир и бухгалтер.'}
-    code=String(Math.floor(1000+Math.random()*9000));
-    msg='Здравствуйте, Ирина! Прошёл проверку на сайте (код '+code+').\n'+(gaps.length?'Не знаю ответа:\n'+gaps.map(function(g){return '— '+g.q}).join('\n'):'На все вопросы ответ знаю.')+'\nЧем занимается компания: ';
+    code=ENDPOINT?String(Math.floor(1000+Math.random()*9000)):'';
+    msg='Здравствуйте, Ирина! Результаты проверки с сайта'+(code?' (код '+code+')':'')+'.\n'+(gaps.length?'Не знаю ответа:\n'+gaps.map(function(g){return '— '+g.q}).join('\n'):'На все вопросы ответ знаю.')+'\nЧем занимается компания: ';
   }
-  function copy(){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(msg).catch(function(){})}}
+  function copy(){try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(msg).catch(function(){})}}catch(e){}}
+  function go(url){var a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()}
+  function note(t){var n=$('note');n.textContent=t;n.hidden=false}
+  function save(ch){
+    if(!ENDPOINT)return;
+    var data={code:code,channel:ch,answers:Q.map(function(x,k){return {q:x.q,know:!!ans[k]}}),unknown:Q.filter(function(x,k){return !ans[k]}).length,from:from(),page:location.pathname,at:new Date().toISOString()};
+    try{fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data)})}catch(e){}
+  }
   $('yes').onclick=function(){ans[i]=true;i++;r()};
   $('no').onclick=function(){ans[i]=false;i++;r()};
-  $('ag').onclick=function(){i=0;ans=[];r()};
-  $('send').onclick=function(){
-    var data={code:code,answers:Q.map(function(x,k){return {q:x.q,know:!!ans[k]}}),unknown:Q.filter(function(x,k){return !ans[k]}).length,from:from(),page:location.pathname,at:new Date().toISOString()};
-    if(ENDPOINT){try{fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data)})}catch(e){}}
-    copy();
-    var url='https://t.me/iLazovich?text='+encodeURIComponent(msg);
-    $('code').textContent=code;$('tgLink').href=url;$('sendRow').hidden=true;$('sent').hidden=false;
-    var a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();
-  };
-  $('copyAgain').onclick=function(){copy();this.textContent='Скопировано'};
+  $('ag').onclick=function(){i=0;ans=[];r();document.getElementById('proverka').scrollIntoView({behavior:'smooth'})};
+  document.querySelectorAll('.send-to [data-ch]').forEach(function(btn){btn.onclick=function(){
+    var ch=btn.getAttribute('data-ch');save(ch);copy();
+    if(ch==='tg'){go('https://t.me/iLazovich?text='+encodeURIComponent(msg));note('Открыла Telegram — сообщение с ответами уже набрано, осталось нажать «Отправить».')}
+    if(ch==='max'){go(MAX);note('Текст с ответами скопирован. В открывшемся MAX вставьте его в чат со мной и отправьте.')}
+    if(ch==='mail'){location.href='mailto:maltsevaie@gmail.com?subject='+encodeURIComponent('Проверка учёта с сайта')+'&body='+encodeURIComponent(msg);note('Открылось письмо с ответами — осталось отправить. Если почта не открылась, нажмите значок копирования и вставьте текст в письмо на maltsevaie@gmail.com.')}
+  }});
+  $('copyMsg').onclick=function(){copy();note('Текст с ответами скопирован — вставьте его в любой мессенджер или письмо.')};
 })();
 </script>
 </body>

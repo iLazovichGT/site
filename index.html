@@ -254,6 +254,9 @@ button.tile:hover{transform:translateY(-2px)}
 .lb button{position:absolute;background:rgba(255,255,255,.16);color:#fff;border:0;border-radius:50%;width:48px;height:48px;font-size:26px;line-height:1;cursor:pointer}
 .lb .lb-x{top:12px;right:12px}.lb .lb-p{left:10px;top:50%}.lb .lb-n{right:10px;top:50%}
 .lb:not(.multi) .lb-p,.lb:not(.multi) .lb-n{display:none}
+
+.icbtn{width:50px;padding:0}
+.quiz .note{margin:14px auto 0;max-width:560px;font-size:15px;color:var(--ink);background:var(--glass-hi);border:1px solid var(--edge);border-radius:16px;padding:12px 16px}
 </style>
 </head>
 <body>
@@ -300,12 +303,15 @@ button.tile:hover{transform:translateY(-2px)}
         <h3 id="rt"></h3>
         <ul class="gaps" id="gaps"></ul>
         <p id="rx"></p>
-        <div class="ctas" id="sendRow"><button class="btn pri" id="send">Отправить результаты для обсуждения</button><button class="again" id="ag">Пройти заново</button></div>
-        <div class="sent gl" id="sent" hidden>
-          <b>Готово! Ваш код — <span id="code"></span></b>
-          <p>Сообщение с ответами уже набрано в Telegram — осталось нажать «Отправить». Если Telegram не открылся, текст скопирован: вставьте его в любой мессенджер или письмо.</p>
-          <div class="ctas"><a class="btn pri" id="tgLink" href="https://t.me/iLazovich">Открыть Telegram</a><button class="btn sec" id="copyAgain">Скопировать ещё раз</button></div>
+        <div class="lbl" style="margin-top:26px">Куда отправить результаты?</div>
+        <div class="ctas send-to">
+          <button class="btn pri" data-ch="tg"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#2AABEE"/><path d="M5.4 11.8l11.3-4.4c.5-.2 1 .1.8.9l-1.9 9c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-3 5.4-4.9c.2-.2 0-.3-.3-.1l-6.7 4.2-2.9-.9c-.6-.2-.6-.6.1-.8z" fill="#fff"/></svg>Telegram</button>
+          <button class="btn sec" data-ch="max"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="mxq" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#20C3FF"/><stop offset=".55" stop-color="#3D6BFF"/><stop offset="1" stop-color="#9B3BFF"/></linearGradient></defs><rect width="24" height="24" rx="7" fill="url(#mxq)"/><path d="M12 5.6a6.4 6.4 0 0 0-5.5 9.7l-.8 3 3.1-.8A6.4 6.4 0 1 0 12 5.6zm0 2.6a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6z" fill="#fff"/></svg>MAX</button>
+          <button class="btn sec" data-ch="mail"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B8336F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg>Почта</button>
+          <button class="btn sec icbtn" id="copyMsg" aria-label="Скопировать текст с ответами" title="Скопировать текст с ответами"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15"/></svg></button>
         </div>
+        <p class="note" id="note" hidden></p>
+        <div class="ctas"><button class="btn sec" id="ag"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4.5h4.5"/></svg>Пройти заново</button></div>
       </div>
     </div>
   </section>
@@ -394,32 +400,38 @@ button.tile:hover{transform:translateY(-2px)}
     {q:'Сколько вы зарабатываете с одного метра или одного заказа?',why:'Без этой цифры цена следующего заказа — догадка.'}
   ];
   var i=0,ans=[],msg='',code='';
+  var MAX='https://max.ru/u/f9LHodD0cOLRmERmWN9e_5sJa840lUgTZzcFC5ITc8SusKnVSCs-5UPfiqs';
   function from(){try{return new URLSearchParams(location.search).get('from')||''}catch(e){return ''}}
   function r(){
     if(i<Q.length){$('qbox').hidden=false;$('res').hidden=true;$('ql').textContent='Вопрос '+(i+1)+' из '+Q.length;$('qt').textContent=Q[i].q;
       var d=$('pr').children;for(var k=0;k<d.length;k++)d[k].className=k<=i?'on':'';return}
-    $('qbox').hidden=true;$('res').hidden=false;$('sent').hidden=true;$('sendRow').hidden=false;
+    $('qbox').hidden=true;$('res').hidden=false;$('note').hidden=true;
     var gaps=Q.filter(function(x,k){return !ans[k]});
     var ul=$('gaps');ul.innerHTML='';
     gaps.forEach(function(g){var li=document.createElement('li'),b=document.createElement('b'),s=document.createElement('span');b.textContent=g.q;s.textContent=g.why;li.appendChild(b);li.appendChild(s);ul.appendChild(li)});
     if(gaps.length){$('rt').innerHTML='<b>'+gaps.length+' из '+Q.length+'</b> — без ответа';$('rx').textContent='Каждый такой вопрос — место, где деньги уходят незаметно. Отправьте результаты — посмотрю ваши ответы и скажу, что собрать первым и сколько это будет стоить.'}
     else{$('rt').innerHTML='Вы знаете <b>всё</b>';$('rx').textContent='Учёт у вас собран. Отправьте результаты — подскажу, куда расти дальше: чтобы это видели менеджер, бригадир и бухгалтер.'}
-    code=String(Math.floor(1000+Math.random()*9000));
-    msg='Здравствуйте, Ирина! Прошёл проверку на сайте (код '+code+').\n'+(gaps.length?'Не знаю ответа:\n'+gaps.map(function(g){return '— '+g.q}).join('\n'):'На все вопросы ответ знаю.')+'\nЧем занимается компания: ';
+    code=ENDPOINT?String(Math.floor(1000+Math.random()*9000)):'';
+    msg='Здравствуйте, Ирина! Результаты проверки с сайта'+(code?' (код '+code+')':'')+'.\n'+(gaps.length?'Не знаю ответа:\n'+gaps.map(function(g){return '— '+g.q}).join('\n'):'На все вопросы ответ знаю.')+'\nЧем занимается компания: ';
   }
-  function copy(){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(msg).catch(function(){})}}
+  function copy(){try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(msg).catch(function(){})}}catch(e){}}
+  function go(url){var a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()}
+  function note(t){var n=$('note');n.textContent=t;n.hidden=false}
+  function save(ch){
+    if(!ENDPOINT)return;
+    var data={code:code,channel:ch,answers:Q.map(function(x,k){return {q:x.q,know:!!ans[k]}}),unknown:Q.filter(function(x,k){return !ans[k]}).length,from:from(),page:location.pathname,at:new Date().toISOString()};
+    try{fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data)})}catch(e){}
+  }
   $('yes').onclick=function(){ans[i]=true;i++;r()};
   $('no').onclick=function(){ans[i]=false;i++;r()};
-  $('ag').onclick=function(){i=0;ans=[];r()};
-  $('send').onclick=function(){
-    var data={code:code,answers:Q.map(function(x,k){return {q:x.q,know:!!ans[k]}}),unknown:Q.filter(function(x,k){return !ans[k]}).length,from:from(),page:location.pathname,at:new Date().toISOString()};
-    if(ENDPOINT){try{fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data)})}catch(e){}}
-    copy();
-    var url='https://t.me/iLazovich?text='+encodeURIComponent(msg);
-    $('code').textContent=code;$('tgLink').href=url;$('sendRow').hidden=true;$('sent').hidden=false;
-    var a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();
-  };
-  $('copyAgain').onclick=function(){copy();this.textContent='Скопировано'};
+  $('ag').onclick=function(){i=0;ans=[];r();document.getElementById('proverka').scrollIntoView({behavior:'smooth'})};
+  document.querySelectorAll('.send-to [data-ch]').forEach(function(btn){btn.onclick=function(){
+    var ch=btn.getAttribute('data-ch');save(ch);copy();
+    if(ch==='tg'){go('https://t.me/iLazovich?text='+encodeURIComponent(msg));note('Открыла Telegram — сообщение с ответами уже набрано, осталось нажать «Отправить».')}
+    if(ch==='max'){go(MAX);note('Текст с ответами скопирован. В открывшемся MAX вставьте его в чат со мной и отправьте.')}
+    if(ch==='mail'){location.href='mailto:maltsevaie@gmail.com?subject='+encodeURIComponent('Проверка учёта с сайта')+'&body='+encodeURIComponent(msg);note('Открылось письмо с ответами — осталось отправить. Если почта не открылась, нажмите значок копирования и вставьте текст в письмо на maltsevaie@gmail.com.')}
+  }});
+  $('copyMsg').onclick=function(){copy();note('Текст с ответами скопирован — вставьте его в любой мессенджер или письмо.')};
 })();
 </script>
 </body>
