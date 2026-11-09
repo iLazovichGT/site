@@ -124,6 +124,8 @@ section.s{padding-top:clamp(96px,12vw,150px)}
 .video.on.idle video{cursor:none}
 .video .vbar button{width:36px;height:36px;border:0;border-radius:50%;background:transparent;display:grid;place-items:center;flex:none}
 .video .vbar button:hover{background:#fff}
+.video .vbar .sp{width:auto;min-width:44px;padding:0 10px;border-radius:999px;font-size:13px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+.video .vbar .sp.on{background:var(--ink);color:#fff}
 .video .vbar .tm{font-size:13px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
 .video .vbar input{flex:1;min-width:40px;accent-color:#0B2236;height:4px;cursor:pointer}
 .video:fullscreen{padding:0;border-radius:0;background:#000;display:flex;align-items:center}
@@ -439,10 +441,10 @@ button.tile:hover{transform:translateY(-2px)}
       b.innerHTML='<svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="'+PLAY+'" fill="#0B2236"/></svg>';
       var bar=document.createElement('div');bar.className='vbar';
       bar.innerHTML='<button type="button" class="pp" aria-label="Пауза">'+ic(PAUSE)+'</button><span class="tm">0:00 / 0:00</span>'+
-        '<input type="range" min="0" max="1000" value="0" aria-label="Перемотка"><button type="button" class="mu" aria-label="Звук">'+ic(SND,1)+'</button>'+
+        '<input type="range" min="0" max="1000" value="0" aria-label="Перемотка"><button type="button" class="sp" aria-label="Скорость: обычная">1×</button><button type="button" class="mu" aria-label="Звук">'+ic(SND,1)+'</button>'+
         '<button type="button" class="fs" aria-label="На весь экран">'+ic(FS,1)+'</button>';
       f.appendChild(b);f.appendChild(bar);
-      var pp=bar.querySelector('.pp'),tm=bar.querySelector('.tm'),rg=bar.querySelector('input'),mu=bar.querySelector('.mu'),fs=bar.querySelector('.fs'),hide;
+      var pp=bar.querySelector('.pp'),tm=bar.querySelector('.tm'),rg=bar.querySelector('input'),mu=bar.querySelector('.mu'),sp=bar.querySelector('.sp'),fs=bar.querySelector('.fs'),hide;
       function go(){var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}
       function tog(){v.paused?go():v.pause()}
       function wake(){f.classList.remove('idle');clearTimeout(hide);if(!v.paused)hide=setTimeout(function(){f.classList.add('idle')},2200)}
@@ -451,6 +453,10 @@ button.tile:hover{transform:translateY(-2px)}
       v.addEventListener('pause',function(){pp.innerHTML=ic(PLAY);pp.setAttribute('aria-label','Смотреть');wake()});
       v.addEventListener('timeupdate',function(){if(v.duration){rg.value=Math.round(v.currentTime/v.duration*1000);tm.textContent=t(v.currentTime)+' / '+t(v.duration)}});
       rg.addEventListener('input',function(){if(v.duration)v.currentTime=rg.value/1000*v.duration});
+      var SP=[1,1.5,2];
+      sp.addEventListener('click',function(){var k=(SP.indexOf(v.playbackRate)+1)%SP.length;v.playbackRate=SP[k];v.defaultPlaybackRate=SP[k];
+        sp.textContent=String(SP[k]).replace('.',',')+'×';sp.classList.toggle('on',k>0);sp.setAttribute('aria-label','Скорость: '+(k?sp.textContent:'обычная'));wake()});
+      v.addEventListener('loadedmetadata',function(){var r=SP[Math.max(0,SP.indexOf(parseFloat(sp.textContent.replace(',','.'))))];v.playbackRate=r});
       mu.addEventListener('click',function(){v.muted=!v.muted;mu.innerHTML=ic(v.muted?MUTE:SND,1)});
       fs.addEventListener('click',function(){
         if(document.fullscreenElement||document.webkitFullscreenElement){(document.exitFullscreen||document.webkitExitFullscreen).call(document);return}
