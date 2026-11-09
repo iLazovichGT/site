@@ -49,7 +49,9 @@ main,header,footer{position:relative;z-index:1}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 24px;border-radius:999px;font-weight:600;font-size:16px;transition:transform .15s,background .2s}
 .btn:hover{transform:translateY(-1px)}
 .btn.pri{background:var(--ink);color:#fff}
-.btn.sec{background:var(--glass-hi);border:1px solid var(--edge);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.btn.sec{border:2px solid transparent;background:linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.9)) padding-box,linear-gradient(135deg,var(--sky),var(--pink)) border-box;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 8px 22px -10px rgba(11,34,54,.28);color:var(--ink)}
+.btn.sec:hover{color:var(--pinkink)}
+.btn.sec:hover svg[stroke]{stroke:var(--pinkink)}
 .eyebrow{display:inline-block;font-size:14px;font-weight:600;color:var(--muted);padding:7px 14px;border-radius:999px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
@@ -316,7 +318,8 @@ button.tile:hover{transform:translateY(-2px)}
 
 .vtabs{margin-top:16px}
 .vtabs .btn{min-height:44px;font-size:15px}
-.vtabs .btn.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.vtabs .btn.on{background:linear-gradient(135deg,#2E8FC8,var(--pinkink)) padding-box,linear-gradient(135deg,#2E8FC8,var(--pinkink)) border-box;color:#fff}
+.vtabs .btn.on:hover{color:#fff}
 
 /* правки после ревью 08.11 */
 .panel>h2{font-weight:300;font-size:clamp(30px,4.4vw,54px);line-height:1.08}
