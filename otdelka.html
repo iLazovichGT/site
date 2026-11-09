@@ -121,24 +121,31 @@ section.s{padding-top:clamp(96px,12vw,150px)}
 .video .vplay:hover path{fill:var(--pinkink)}
 .video .vplay path{transition:fill .25s}
 .totop{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:max(20px,env(safe-area-inset-bottom,0px));z-index:50;width:50px;height:50px;
-  border-radius:50%;border:1px solid var(--edge);background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-  box-shadow:0 10px 28px rgba(11,34,54,.18);display:grid;place-items:center;opacity:0;transform:translateY(12px);pointer-events:none;
+  border-radius:50%;border:3px solid transparent;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,var(--sky),var(--pink)) border-box;
+  box-shadow:0 12px 30px rgba(11,34,54,.24);display:grid;place-items:center;opacity:0;transform:translateY(12px);pointer-events:none;
   transition:opacity .3s,transform .3s,background .2s}
 .totop.show{opacity:1;transform:none;pointer-events:auto}
-.totop:hover{background:#fff}
+.totop:hover{transform:scale(1.08)}
+.totop path{transition:stroke .2s}
+.totop:hover path{stroke:var(--pinkink)}
 @media(prefers-reduced-motion:reduce){.video .vplay{animation:none}.totop{transition:none}}
 .video.on .vplay{display:none}
 .video video{cursor:pointer}
-.video .vbar{position:absolute;left:28px;right:28px;bottom:26px;display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.8);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--edge);box-shadow:0 8px 24px rgba(11,34,54,.14);opacity:0;pointer-events:none;transition:opacity .3s}
+.video .vbar{position:absolute;left:28px;right:28px;bottom:26px;display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:2px solid transparent;background:linear-gradient(rgba(255,255,255,.94),rgba(255,255,255,.94)) padding-box,linear-gradient(135deg,var(--sky),var(--pink)) border-box;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 12px 30px rgba(11,34,54,.22);opacity:0;pointer-events:none;transition:opacity .3s}
 .video.on .vbar{opacity:1;pointer-events:auto}
 .video.on.idle .vbar{opacity:0;pointer-events:none}
 .video.on.idle video{cursor:none}
 .video .vbar button{width:36px;height:36px;border:0;border-radius:50%;background:transparent;display:grid;place-items:center;flex:none}
-.video .vbar button:hover{background:#fff}
+.video .vbar button:hover{background:rgba(243,155,203,.18)}
+.video .vbar path{transition:fill .2s,stroke .2s}
+.video .vbar button:hover path{stroke:var(--pinkink)}
+.video .vbar .pp:hover path{fill:var(--pinkink);stroke:none}
 .video .vbar .sp{width:auto;min-width:44px;padding:0 10px;border-radius:999px;font-size:13px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
-.video .vbar .sp.on{background:var(--ink);color:#fff}
+.video .vbar .sp.on{background:linear-gradient(135deg,#2E8FC8,var(--pinkink));color:#fff}
+.video .vbar .sp:hover{color:var(--pinkink)}
+.video .vbar .sp.on:hover{color:#fff}
 .video .vbar .tm{font-size:13px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
-.video .vbar input{flex:1;min-width:40px;accent-color:#0B2236;height:4px;cursor:pointer}
+.video .vbar input{flex:1;min-width:40px;accent-color:#B8336F;height:4px;cursor:pointer}
 .video:fullscreen{padding:0;border-radius:0;background:#000;display:flex;align-items:center}
 .video:fullscreen video{height:100%;object-fit:contain;border-radius:0;clip-path:none}
 .video:-webkit-full-screen{padding:0;border-radius:0;background:#000;display:flex;align-items:center;width:100%;height:100%}
