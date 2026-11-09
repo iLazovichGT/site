@@ -152,7 +152,8 @@ section.s{padding-top:clamp(96px,12vw,150px)}
 .video:-webkit-full-screen video{height:100%;object-fit:contain;border-radius:0;clip-path:none}
 @media(max-width:640px){.video .vbar{left:14px;right:14px;bottom:14px;gap:4px;padding:4px 6px}.video .vbar .tm{font-size:12px}}
 @media(max-width:640px){.video .vplay{width:66px;height:66px;margin:-33px 0 0 -33px}.video .vplay svg{width:24px;height:24px}}
-.video .t{position:absolute;left:26px;top:24px;padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600}
+.video .t{position:absolute;left:26px;top:24px;padding:7px 14px;border-radius:999px;font-size:14px;font-weight:600;color:var(--ink);z-index:2}
+.video .t.gl{border:2px solid transparent;background:linear-gradient(rgba(255,255,255,.94),rgba(255,255,255,.94)) padding-box,linear-gradient(135deg,var(--sky),var(--pink)) border-box;box-shadow:0 10px 26px rgba(11,34,54,.2)}
 .facts{display:grid;gap:12px;align-content:start}
 .fact{border-radius:24px;padding:22px}
 .fact b{display:block;font-size:30px;font-weight:600;letter-spacing:-.03em}
