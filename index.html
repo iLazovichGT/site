@@ -112,7 +112,12 @@ section.s{padding-top:clamp(96px,12vw,150px)}
 .case{display:grid;grid-template-columns:1.5fr 1fr;gap:18px;margin-top:44px}
 .case>*{min-width:0}
 .video{position:relative;display:block;border-radius:30px;padding:10px;margin:0;max-width:100%}
-.video video{width:100%;height:auto;display:block;border-radius:22px;background:#0B2236}
+.video video{width:100%;height:auto;display:block;border-radius:22px;background:transparent;clip-path:inset(0 round 22px);-webkit-mask-image:-webkit-radial-gradient(white,black)}
+.video .vplay{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;border:1px solid var(--edge);background:rgba(255,255,255,.78);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(11,34,54,.18);display:grid;place-items:center;transition:transform .2s}
+.video .vplay:hover{transform:scale(1.06)}
+.video .vplay svg{margin-left:5px}
+.video.on .vplay{display:none}
+@media(max-width:640px){.video .vplay{width:64px;height:64px;margin:-32px 0 0 -32px}.video .vplay svg{width:24px;height:24px}}
 .video .t{position:absolute;left:26px;top:24px;padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600}
 .facts{display:grid;gap:12px;align-content:start}
 .fact{border-radius:24px;padding:22px}
@@ -437,6 +442,15 @@ button.tile:hover{transform:translateY(-2px)}
     m.addEventListener('click',function(e){if(e.target===m||e.target.classList.contains('mx'))cl()});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)cl()});
   })();
+  // видео: до запуска — без кнопок браузера (Safari затемняет превью), своя кнопка «▶»
+  document.querySelectorAll('.video video').forEach(function(v){
+    var f=v.closest('.video');v.removeAttribute('controls');
+    var b=document.createElement('button');b.type='button';b.className='vplay';b.setAttribute('aria-label','Смотреть видео');
+    b.innerHTML='<svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="#0B2236"/></svg>';
+    f.appendChild(b);
+    b.addEventListener('click',function(){v.controls=true;var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})});
+    v.addEventListener('play',function(){v.controls=true;f.classList.add('on')});
+  });
   (function(){
     var v=document.getElementById('lpv'),t=document.getElementById('lpt');if(!v)return;
     document.querySelectorAll('[data-v]').forEach(function(btn){btn.addEventListener('click',function(){
