@@ -48,7 +48,11 @@ main,header,footer{position:relative;z-index:1}
 .gl{background:var(--glass);border:1px solid var(--edge);backdrop-filter:blur(24px) saturate(170%);-webkit-backdrop-filter:blur(24px) saturate(170%);box-shadow:0 24px 60px -28px rgba(11,34,54,.35),inset 0 1px 0 rgba(255,255,255,.85)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 24px;border-radius:999px;font-weight:600;font-size:16px;transition:transform .15s,background .2s}
 .btn:hover{transform:translateY(-1px)}
-.btn.pri{background:var(--ink);color:#fff}
+.btn.pri{border:2px solid transparent;background:linear-gradient(var(--ink),var(--ink)) padding-box,linear-gradient(135deg,var(--sky),var(--pink)) border-box;color:#fff;box-shadow:0 10px 26px -12px rgba(11,34,54,.45)}
+.btn.pri:hover,.btn.sec:hover{box-shadow:0 0 0 4px rgba(243,155,203,.28),0 10px 26px -12px rgba(11,34,54,.45)}
+/* «Знаю за минуту» и «Надо выяснять» — равные ответы, одинаковые кнопки */
+.quiz #yes{background:linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.9)) padding-box,linear-gradient(135deg,var(--sky),var(--pink)) border-box;color:var(--ink)}
+.quiz #yes:hover{color:var(--pinkink)}
 .btn.sec{border:2px solid transparent;background:linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.9)) padding-box,linear-gradient(135deg,var(--sky),var(--pink)) border-box;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 8px 22px -10px rgba(11,34,54,.28);color:var(--ink)}
 .btn.sec:hover{color:var(--pinkink)}
 .btn.sec:hover svg[stroke]{stroke:var(--pinkink)}
