@@ -117,6 +117,20 @@ section.s{padding-top:clamp(96px,12vw,150px)}
 .video .vplay:hover{transform:scale(1.06)}
 .video .vplay svg{margin-left:5px}
 .video.on .vplay{display:none}
+.video video{cursor:pointer}
+.video .vbar{position:absolute;left:28px;right:28px;bottom:26px;display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.8);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--edge);box-shadow:0 8px 24px rgba(11,34,54,.14);opacity:0;pointer-events:none;transition:opacity .3s}
+.video.on .vbar{opacity:1;pointer-events:auto}
+.video.on.idle .vbar{opacity:0;pointer-events:none}
+.video.on.idle video{cursor:none}
+.video .vbar button{width:36px;height:36px;border:0;border-radius:50%;background:transparent;display:grid;place-items:center;flex:none}
+.video .vbar button:hover{background:#fff}
+.video .vbar .tm{font-size:13px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.video .vbar input{flex:1;min-width:40px;accent-color:#0B2236;height:4px;cursor:pointer}
+.video:fullscreen{padding:0;border-radius:0;background:#000;display:flex;align-items:center}
+.video:fullscreen video{height:100%;object-fit:contain;border-radius:0;clip-path:none}
+.video:-webkit-full-screen{padding:0;border-radius:0;background:#000;display:flex;align-items:center;width:100%;height:100%}
+.video:-webkit-full-screen video{height:100%;object-fit:contain;border-radius:0;clip-path:none}
+@media(max-width:640px){.video .vbar{left:14px;right:14px;bottom:14px;gap:4px;padding:4px 6px}.video .vbar .tm{font-size:12px}}
 @media(max-width:640px){.video .vplay{width:64px;height:64px;margin:-32px 0 0 -32px}.video .vplay svg{width:24px;height:24px}}
 .video .t{position:absolute;left:26px;top:24px;padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600}
 .facts{display:grid;gap:12px;align-content:start}
@@ -412,15 +426,38 @@ button.tile:hover{transform:translateY(-2px)}
     m.addEventListener('click',function(e){if(e.target===m||e.target.classList.contains('mx'))cl()});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)cl()});
   })();
-  // видео: до запуска — без кнопок браузера (Safari затемняет превью), своя кнопка «▶»
-  document.querySelectorAll('.video video').forEach(function(v){
-    var f=v.closest('.video');v.removeAttribute('controls');
-    var b=document.createElement('button');b.type='button';b.className='vplay';b.setAttribute('aria-label','Смотреть видео');
-    b.innerHTML='<svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="#0B2236"/></svg>';
-    f.appendChild(b);
-    b.addEventListener('click',function(){v.controls=true;var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})});
-    v.addEventListener('play',function(){v.controls=true;f.classList.add('on')});
-  });
+  // видео: свои кнопки вместо кнопок браузера (Safari затемняет кадр, пока видны его кнопки)
+  (function(){
+    function ic(d,st){return '<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" '+(st?'fill="none" stroke="#0B2236" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"':'fill="#0B2236"')+'><path d="'+d+'"/></svg>'}
+    var PLAY='M7 4.5v15l12.5-7.5z',PAUSE='M6.5 5h4v14h-4zM13.5 5h4v14h-4z',
+        SND='M4 9h3l5-4v14l-5-4H4zM16 9a4.5 4.5 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11',MUTE='M4 9h3l5-4v14l-5-4H4zM16 9.5l5 5M21 9.5l-5 5',
+        FS='M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5';
+    function t(x){x=Math.floor(x||0);return Math.floor(x/60)+':'+('0'+x%60).slice(-2)}
+    document.querySelectorAll('.video video').forEach(function(v){
+      var f=v.closest('.video');v.removeAttribute('controls');v.controls=false;
+      var b=document.createElement('button');b.type='button';b.className='vplay';b.setAttribute('aria-label','Смотреть видео');
+      b.innerHTML='<svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="'+PLAY+'" fill="#0B2236"/></svg>';
+      var bar=document.createElement('div');bar.className='vbar';
+      bar.innerHTML='<button type="button" class="pp" aria-label="Пауза">'+ic(PAUSE)+'</button><span class="tm">0:00 / 0:00</span>'+
+        '<input type="range" min="0" max="1000" value="0" aria-label="Перемотка"><button type="button" class="mu" aria-label="Звук">'+ic(SND,1)+'</button>'+
+        '<button type="button" class="fs" aria-label="На весь экран">'+ic(FS,1)+'</button>';
+      f.appendChild(b);f.appendChild(bar);
+      var pp=bar.querySelector('.pp'),tm=bar.querySelector('.tm'),rg=bar.querySelector('input'),mu=bar.querySelector('.mu'),fs=bar.querySelector('.fs'),hide;
+      function go(){var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}
+      function tog(){v.paused?go():v.pause()}
+      function wake(){f.classList.remove('idle');clearTimeout(hide);if(!v.paused)hide=setTimeout(function(){f.classList.add('idle')},2200)}
+      b.addEventListener('click',go);pp.addEventListener('click',tog);v.addEventListener('click',tog);
+      v.addEventListener('play',function(){f.classList.add('on');pp.innerHTML=ic(PAUSE);pp.setAttribute('aria-label','Пауза');wake()});
+      v.addEventListener('pause',function(){pp.innerHTML=ic(PLAY);pp.setAttribute('aria-label','Смотреть');wake()});
+      v.addEventListener('timeupdate',function(){if(v.duration){rg.value=Math.round(v.currentTime/v.duration*1000);tm.textContent=t(v.currentTime)+' / '+t(v.duration)}});
+      rg.addEventListener('input',function(){if(v.duration)v.currentTime=rg.value/1000*v.duration});
+      mu.addEventListener('click',function(){v.muted=!v.muted;mu.innerHTML=ic(v.muted?MUTE:SND,1)});
+      fs.addEventListener('click',function(){
+        if(document.fullscreenElement||document.webkitFullscreenElement){(document.exitFullscreen||document.webkitExitFullscreen).call(document);return}
+        if(f.requestFullscreen)f.requestFullscreen();else if(f.webkitRequestFullscreen)f.webkitRequestFullscreen();else if(v.webkitEnterFullscreen)v.webkitEnterFullscreen()});
+      f.addEventListener('mousemove',wake);f.addEventListener('touchstart',wake,{passive:true});
+    });
+  })();
   (function(){
     var v=document.getElementById('lpv'),t=document.getElementById('lpt');if(!v)return;
     document.querySelectorAll('[data-v]').forEach(function(btn){btn.addEventListener('click',function(){
