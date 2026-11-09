@@ -77,10 +77,13 @@ main,header,footer{position:relative;z-index:1}
 .chip.b{right:0;top:2%;animation:bob 8s ease-in-out infinite reverse}
 .chip.c{right:3%;bottom:8%;animation:bob 9s ease-in-out infinite}
 .chip.c b{color:var(--pinkink)}
+.chip.d{left:2%;bottom:6%;animation:bob 8.5s ease-in-out infinite reverse}
 @keyframes bob{50%{transform:translateY(-10px)}}
-@media (max-width:640px){.stage{padding:52px 0 22px}.chip{min-width:0;padding:8px 11px;border-radius:16px}.chip small{font-size:11px}.chip b{font-size:18px}.chip.a{top:0;left:0}.chip.b{top:0}.chip.c{bottom:0;right:-6px}}
+@media (max-width:640px){.stage{padding:52px 0 22px}.chip{min-width:0;padding:8px 11px;border-radius:16px}.chip small{font-size:11px}.chip b{font-size:18px}.chip.a{top:0;left:0}.chip.b{top:0}.chip.c{bottom:0;right:-6px}.chip.d{bottom:0;left:-6px}}
 .niche{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:40px}
 .niche span{font-size:14px;padding:8px 14px;border-radius:999px;color:#2C4255}
+.niche .add{font-size:14px;font-weight:600;padding:7px 14px;border-radius:999px;color:var(--ink);border:2px solid transparent;background:linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.9)) padding-box,linear-gradient(135deg,var(--sky),var(--pink)) border-box;transition:color .2s}
+.niche .add:hover{color:var(--pinkink)}
 
 /* разделы */
 section.s{padding-top:clamp(72px,9vw,112px)}
@@ -350,7 +353,7 @@ button.tile:hover{transform:translateY(-2px)}
 </head>
 <body>
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
-<header><div class="w"><nav class="nav gl" aria-label="Разделы сайта"><a class="brand" href="#top"><img src="img/ira-round.webp" alt="" width="38" height="38"><span><b>Ирина</b><small>Архитектор учётных систем (ERP)</small></span></a><div class="menu"><a href="#umeyu">Что умеет система</a><a href="#proverka">Проверить себя</a><a href="#keisy">Кейсы</a><a href="#kak">Как работаю</a><a href="obo-mne.html">Обо мне</a></div><a class="btn pri cta" href="#napisat">Обсудить мой учёт</a><details class="burger"><summary aria-label="Меню"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><div class="drop gl"><a href="#umeyu">Что умеет система</a><a href="#proverka">Проверить себя</a><a href="#keisy">Кейсы</a><a href="#kak">Как работаю</a><a href="obo-mne.html">Обо мне</a></div></details></nav></div></header>
+<header><div class="w"><nav class="nav gl" aria-label="Разделы сайта"><a class="brand" href="#top"><img src="img/ira-round.webp" alt="" width="38" height="38"><span><b>Ирина</b><small>Архитектор учётных систем (ERP)</small></span></a><div class="menu"><a href="#umeyu">Что умеют системы</a><a href="#proverka">Проверить себя</a><a href="#keisy">Кейсы</a><a href="#kak">Как работаю</a><a href="obo-mne.html">Обо мне</a></div><a class="btn pri cta" href="#napisat">Обсудить мой учёт</a><details class="burger"><summary aria-label="Меню"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><div class="drop gl"><a href="#umeyu">Что умеют системы</a><a href="#proverka">Проверить себя</a><a href="#keisy">Кейсы</a><a href="#kak">Как работаю</a><a href="obo-mne.html">Обо мне</a></div></details></nav></div></header>
 <main class="w" id="top">
   <section class="hero">
     <span class="eyebrow gl">Для малого бизнеса</span>
@@ -358,22 +361,23 @@ button.tile:hover{transform:translateY(-2px)}
     <p>Одно приложение для телефона и&nbsp;компьютера, где видно, сколько заработал каждый заказ, кто вам должен и&nbsp;сколько платить людям. Собираю его под то, как на&nbsp;самом деле работает ваша компания.</p>
     <div class="ctas"><a class="btn pri" href="#napisat">Обсудить мой учёт</a><a class="btn sec" href="#proverka">Проверить себя за&nbsp;минуту</a></div>
     <div class="stage">
-      <div class="shot gl"><img src="img/d-dash.webp" alt="Сводка директора: баланс компании, ожидаемые поступления, прибыль с метра" width="1600" height="960"></div>
+      <div class="shot gl"><img src="img/d-dash.webp" alt="Онлайн-система учёта: сводка директора — прибыль с метра и за месяц, баланс компании, кто должен" width="1600" height="960"></div>
       <div class="chip gl a"><small>Прибыль с&nbsp;метра</small><b>371 ₽</b></div>
       <div class="chip gl b"><small>Ждут оплаты</small><b>591 000 ₽</b></div>
-      <div class="chip gl c"><small>Смен на&nbsp;согласовании</small><b>2</b></div>
+      <div class="chip gl c"><small>Прибыль за&nbsp;месяц</small><b>+601 363 ₽</b></div>
+      <div class="chip gl d"><small>Баланс компании</small><b>2 569 617 ₽</b></div>
     </div>
-    <div class="niche"><span class="gl">отделка и&nbsp;ремонт</span><span class="gl">монтаж окон и&nbsp;потолков</span><span class="gl">стройка</span><span class="gl">производство</span><span class="gl">перевозки</span><span class="gl">услуги по&nbsp;договорам</span><span class="gl">аренда техники</span></div>
+    <div class="niche"><span class="gl">отделка и&nbsp;ремонт</span><span class="gl">монтаж окон и&nbsp;потолков</span><span class="gl">стройка</span><span class="gl">производство</span><span class="gl">перевозки</span><span class="gl">услуги по&nbsp;договорам</span><span class="gl">аренда техники</span><a class="add" href="#napisat">+ ваша отрасль</a></div>
   </section>
 
   <section class="s" id="umeyu">
-    <div class="head"><span class="eyebrow gl">Что умеет система</span><h2>Пять вещей, которые система <b>делает за&nbsp;вас</b></h2><p>Экраны из&nbsp;работающей системы.</p></div>
+    <div class="head"><span class="eyebrow gl">Что умеют мои системы</span><h2>Пять вещей, которые система <b>делает за&nbsp;вас</b></h2><p>Экраны из&nbsp;работающей системы.</p></div>
     <div class="feats">
       <div class="feat gl"><div class="txt"><div class="num">ДЕНЬГИ</div><h3>Прибыль заказа видна до&nbsp;начала работ</h3><p>Смета сразу считает себестоимость и&nbsp;прибыль&nbsp;— убыточный заказ видно до&nbsp;того, как вы&nbsp;за&nbsp;него взялись.</p></div><div class="frame"><img src="img/c-econ.webp" alt="Экономика объекта по смете: себестоимость, прибыль, прибыль на метр" loading="lazy" width="1200" height="403"></div></div>
       <div class="feat gl rev"><div class="txt"><div class="num">ДОКУМЕНТЫ</div><h3>Договор, счёт и&nbsp;акт&nbsp;— в&nbsp;один клик</h3><p>Реквизиты вносятся один раз. PDF сразу с&nbsp;подписью, печатью и&nbsp;QR-кодом для оплаты&nbsp;— без копирования прошлых файлов.</p></div><div class="frame"><img src="img/tr-pdf.webp" alt="Счёт в PDF с подписью, печатью и QR-кодом" loading="lazy" width="1400" height="880"></div></div>
       <div class="feat gl"><div class="txt"><div class="num">ОПЛАТЫ</div><h3>Кто не&nbsp;заплатил&nbsp;— видно сразу</h3><p>Счёт ждёт оплаты дольше двух недель&nbsp;— красная метка и&nbsp;отдельный список. Сводка за&nbsp;месяц и&nbsp;год собирается сама.</p></div><div class="frame"><img src="img/tr-debt.webp" alt="Сводка: выставлено, оплачено, ждёт оплаты" loading="lazy" width="1400" height="880"></div></div>
       <div class="feat gl rev"><div class="txt"><div class="num">ТЕЛЕФОН</div><h3>Работает с&nbsp;телефона</h3><p>Бригадир сдаёт смену на&nbsp;объекте, менеджер выставляет счёт в&nbsp;дороге. Иконка на&nbsp;экране, вход по&nbsp;коду.</p></div><div class="phones"><img src="img/m-fore-form.webp" alt="Сдача смены с телефона" loading="lazy" width="420" height="909"><img src="img/m-dir-dash.webp" alt="Сводка директора на телефоне" loading="lazy" width="420" height="909"></div></div>
-      <div class="feat gl"><div class="txt"><div class="num">КОНТРОЛЬ</div><h3>Перерасход виден до&nbsp;зарплаты</h3><p>Смена дороже нормы уходит директору на&nbsp;согласование. Переплата не&nbsp;попадает в&nbsp;расчётный лист незаметно.</p></div><div class="frame"><img src="img/c-redshift.webp" alt="Смена на согласовании: зарплата на метр выше норматива" loading="lazy" width="1200" height="161"></div></div>
+      <div class="feat gl"><div class="txt"><div class="num">ЗАРПЛАТА</div><h3>Зарплата считается сама&nbsp;— по&nbsp;вашим правилам</h3><p>Смены, выработка, проценты или оклад&nbsp;— как принято у&nbsp;вас. Видно, сколько начислено, сколько выплачено и&nbsp;кому ещё должны.</p></div><div class="frame"><img src="img/d-salary-dash.webp" alt="Остатки по зарплате: начислено, выплачено, долг перед работниками" loading="lazy" width="1200" height="650"></div></div>
     </div>
     <p class="demo">На&nbsp;всех экранах&nbsp;— демонстрационные данные.</p>
   </section>

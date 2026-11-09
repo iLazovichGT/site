@@ -77,10 +77,13 @@ main,header,footer{position:relative;z-index:1}
 .chip.b{right:0;top:2%;animation:bob 8s ease-in-out infinite reverse}
 .chip.c{right:3%;bottom:8%;animation:bob 9s ease-in-out infinite}
 .chip.c b{color:var(--pinkink)}
+.chip.d{left:2%;bottom:6%;animation:bob 8.5s ease-in-out infinite reverse}
 @keyframes bob{50%{transform:translateY(-10px)}}
-@media (max-width:640px){.stage{padding:52px 0 22px}.chip{min-width:0;padding:8px 11px;border-radius:16px}.chip small{font-size:11px}.chip b{font-size:18px}.chip.a{top:0;left:0}.chip.b{top:0}.chip.c{bottom:0;right:-6px}}
+@media (max-width:640px){.stage{padding:52px 0 22px}.chip{min-width:0;padding:8px 11px;border-radius:16px}.chip small{font-size:11px}.chip b{font-size:18px}.chip.a{top:0;left:0}.chip.b{top:0}.chip.c{bottom:0;right:-6px}.chip.d{bottom:0;left:-6px}}
 .niche{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:40px}
 .niche span{font-size:14px;padding:8px 14px;border-radius:999px;color:#2C4255}
+.niche .add{font-size:14px;font-weight:600;padding:7px 14px;border-radius:999px;color:var(--ink);border:2px solid transparent;background:linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.9)) padding-box,linear-gradient(135deg,var(--sky),var(--pink)) border-box;transition:color .2s}
+.niche .add:hover{color:var(--pinkink)}
 
 /* разделы */
 section.s{padding-top:clamp(72px,9vw,112px)}
@@ -350,7 +353,7 @@ button.tile:hover{transform:translateY(-2px)}
 </head>
 <body>
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
-<header><div class="w"><nav class="nav gl" aria-label="Разделы сайта"><a class="brand" href="./"><img src="img/ira-round.webp" alt="" width="38" height="38"><span><b>Ирина</b><small>Архитектор учётных систем (ERP)</small></span></a><div class="menu"><a href="./#umeyu">Что умеет система</a><a href="./#proverka">Проверить себя</a><a href="./#keisy" aria-current="page">Кейсы</a><a href="./#kak">Как работаю</a><a href="obo-mne.html">Обо мне</a></div><a class="btn pri cta" href="#napisat">Обсудить мой учёт</a><details class="burger"><summary aria-label="Меню"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><div class="drop gl"><a href="./#umeyu">Что умеет система</a><a href="./#proverka">Проверить себя</a><a href="./#keisy" aria-current="page">Кейсы</a><a href="./#kak">Как работаю</a><a href="obo-mne.html">Обо мне</a></div></details></nav></div></header>
+<header><div class="w"><nav class="nav gl" aria-label="Разделы сайта"><a class="brand" href="./"><img src="img/ira-round.webp" alt="" width="38" height="38"><span><b>Ирина</b><small>Архитектор учётных систем (ERP)</small></span></a><div class="menu"><a href="./#umeyu">Что умеют системы</a><a href="./#proverka">Проверить себя</a><a href="./#keisy" aria-current="page">Кейсы</a><a href="./#kak">Как работаю</a><a href="obo-mne.html">Обо мне</a></div><a class="btn pri cta" href="#napisat">Обсудить мой учёт</a><details class="burger"><summary aria-label="Меню"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><div class="drop gl"><a href="./#umeyu">Что умеют системы</a><a href="./#proverka">Проверить себя</a><a href="./#keisy" aria-current="page">Кейсы</a><a href="./#kak">Как работаю</a><a href="obo-mne.html">Обо мне</a></div></details></nav></div></header>
 <main class="w">
   <section class="page-hero">
     <span class="eyebrow gl">Кейс · перевозки и&nbsp;документооборот</span>
