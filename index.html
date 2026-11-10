@@ -192,6 +192,7 @@ section.s{padding-top:clamp(72px,9vw,112px)}
 .about .txt{flex:1 1 380px;min-width:0}
 .about h2{font-weight:300;font-size:clamp(28px,3.6vw,44px)}
 .about h2 b{font-weight:600}
+.about h2 .erp{font-weight:300}
 .about p{color:var(--muted);font-size:18px;margin:14px 0 0;max-width:640px}
 .about a{display:inline-block;margin-top:16px;font-weight:600;color:var(--pinkink)}
 
@@ -443,8 +444,8 @@ button.tile:hover{transform:translateY(-2px)}
       <img src="img/ira-round.webp" alt="Ирина" width="360" height="360">
       <div class="txt">
         <span class="eyebrow gl">Обо мне</span>
-        <h2 style="margin-top:14px">Ирина · <b>Архитектор учётных систем</b> (ERP)</h2>
-        <p>Проектирую и&nbsp;собираю учётные системы для малого бизнеса. По&nbsp;профессии&nbsp;— инженер-программист, по&nbsp;образованию&nbsp;— прикладная математика, диплом с&nbsp;отличием. В&nbsp;Газпром бурении проектировала базы данных и&nbsp;видела внедрение большой ERP изнутри, со&nbsp;стороны заказчика. Поэтому начинаю с&nbsp;того, как работают ваши люди, а&nbsp;не&nbsp;с&nbsp;программы.</p>
+        <h2 style="margin-top:14px">Ирина · <b>Архитектор учётных систем</b> <span class="erp">· ERP</span></h2>
+        <p>Проектирую и&nbsp;разрабатываю онлайн-системы учёта уровня ERP для малого и&nbsp;среднего бизнеса: своя CRM, заказы и&nbsp;работы, документы, деньги и&nbsp;зарплата&nbsp;— в&nbsp;одной системе. По&nbsp;образованию&nbsp;— прикладной математик, по&nbsp;профессии&nbsp;— инженер-программист. В&nbsp;компании «Газпром бурение» прошла путь от&nbsp;молодого специалиста до&nbsp;ведущего инженера-программиста: разработка приложений, создание и&nbsp;сопровождение баз данных. Мой подход&nbsp;— инженерный: сначала разбираю процессы и&nbsp;данные компании, потом проектирую систему.</p>
         <a href="obo-mne.html">Подробнее обо мне →</a>
       </div>
     </div>
@@ -462,6 +463,9 @@ button.tile:hover{transform:translateY(-2px)}
 <footer><a href="./">Главная</a><a href="otdelka.html">Кейс «Отделка»</a><a href="perevozki.html">Кейс «Перевозки»</a><a href="obo-mne.html">Обо мне</a><a href="obo-mne.html#igra">Подарок: головоломка</a><a href="#">ВКонтакте</a><a href="#">Профи.ру</a><a href="#" data-avito>Авито</a><div class="req">ИП&nbsp;Мальцева Ирина Евгеньевна · ОГРНИП 309231530100060 от&nbsp;28.10.2009 · Работаю по&nbsp;договору, оплата на&nbsp;расчётный счёт</div></footer>
 <div class="modal" id="avm" hidden><div class="mbox gl" role="dialog" aria-modal="true" aria-labelledby="avmt"><button class="mx" type="button" aria-label="Закрыть">×</button><img src="img/avito-card.webp" alt="Обложка объявления: «Сведу то, что не сходится», Архитектор ERP" width="320" height="320"><h3 id="avmt">Как найти меня на&nbsp;Авито</h3><p>Ищите карточку с&nbsp;этой обложкой по&nbsp;запросу:</p><span class="btn sec mail">Разработка учётных систем, CRM и&nbsp;Google Таблиц</span><a class="btn pri" href="https://www.avito.ru/moskva/predlozheniya_uslug?q=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D1%83%D1%87%D1%91%D1%82%D0%BD%D1%8B%D1%85%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%2C%20CRM%20%D0%B8%20Google%20%D0%A2%D0%B0%D0%B1%D0%BB%D0%B8%D1%86" target="_blank" rel="noopener">Открыть поиск Авито</a><small>Запрос уже будет в&nbsp;строке поиска. Нажмите на&nbsp;него выше, чтобы скопировать.</small></div></div>
 <script>
+// при обновлении страницы — всегда наверх
+try{if('scrollRestoration' in history)history.scrollRestoration='manual';var nv=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0];if(nv&&nv.type==='reload'){if(location.hash)history.replaceState(null,'',location.pathname+location.search);window.scrollTo(0,0);addEventListener('load',function(){window.scrollTo(0,0)});}}catch(e){}
+
 (function(){
   var $=function(x){return document.getElementById(x)};
   function nb(s){return s.replace(/(^|[\s(«])([а-яёА-ЯЁ]{1,2}) /g,'$1$2 ').replace(/ —/g,' —')}
