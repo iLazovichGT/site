@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /apps-script.gs
+
+Sitemap: https://vmalom.ru/sitemap.xml
