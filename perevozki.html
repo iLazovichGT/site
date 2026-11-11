@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Кейс «Перевозки» · В малом</title>
+<title>Кейс «Документооборот» · В малом</title>
 <meta name="description" content="Документооборот транспортной компании: из папок с копиями — в Google Таблицу, потом в приложение для компьютера и телефона.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Ирина · Архитектор учётных систем">
-<meta property="og:title" content="Кейс «Перевозки» · В малом">
+<meta property="og:title" content="Кейс «Документооборот» · В малом">
 <meta property="og:description" content="Документооборот транспортной компании: из папок с копиями — в Google Таблицу, потом в приложение для компьютера и телефона.">
 <meta property="og:url" content="https://vmalom.ru/perevozki.html">
 <meta property="og:image" content="https://vmalom.ru/img/og.jpg?v=2">
@@ -398,14 +398,39 @@ button.tile:hover{transform:translateY(-2px)}
  .tpeek button.open .pk{max-height:700px;opacity:1;margin-top:14px}
  .tpeek button:hover{transform:none}
 }
+
+/* меню «Кейсы»: по наведению — список кейсов со значками (11.11) */
+.dd{position:relative;display:flex}
+.dd>a{display:inline-flex;align-items:center;gap:5px}
+.dd .chev{opacity:.55;transition:transform .2s}
+.dd:hover .chev,.dd:focus-within .chev{transform:rotate(180deg)}
+.ddm{position:absolute;left:50%;top:100%;margin-top:10px;transform:translate(-50%,6px);min-width:330px;padding:8px;border-radius:22px;display:flex;flex-direction:column;gap:2px;
+ background:rgba(255,255,255,.97);box-shadow:0 24px 60px -16px rgba(11,34,54,.35);opacity:0;visibility:hidden;transition:opacity .18s,transform .18s,visibility .18s;z-index:30}
+.ddm:before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
+.dd:hover .ddm,.dd:focus-within .ddm{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.ddm a,.bsub a{display:flex;align-items:center;gap:12px;padding:9px 12px;border-radius:16px;white-space:normal;text-align:left}
+.ddm a:hover,.bsub a:hover{background:#EEF5FB}
+.ddm a[aria-current="page"]{background:#EEF5FB;color:inherit}
+.ddm i,.bsub i{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:2px solid transparent;
+ background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,var(--sky),var(--pink)) border-box}
+.ddm b,.bsub b{display:block;font-size:15px;font-weight:600;color:var(--ink)}
+.ddm small,.bsub small{display:block;font-size:13px;font-weight:500;color:var(--muted);margin-top:1px}
+.bsub{display:flex;flex-direction:column;gap:2px;margin:0 0 6px 14px}
+.bsub i{width:34px;height:34px}
+.ddm{min-width:340px}.ddm small{white-space:nowrap}
+.burger .drop .bsub{margin:-4px 0 4px 10px}
+.burger .drop .bsub a{padding:7px 10px;gap:10px}
+.burger .drop .bsub b{font-size:15px}.burger .drop .bsub small{font-size:12.5px;white-space:nowrap}
+.burger .drop:has(.bsub){min-width:290px}
+.ddm i img,.bsub i img{display:block;width:26px;height:26px;border-radius:7px}.bsub i img{width:22px;height:22px;border-radius:6px}
 </style>
 </head>
 <body>
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
-<header><div class="w"><nav class="nav gl" aria-label="Разделы сайта"><a class="brand" href="./"><img src="img/ira-round.webp" alt="" width="38" height="38"><span><b>Ирина</b><small>Архитектор учётных систем · ERP</small></span></a><div class="menu"><a href="./#umeyu">Что умеют системы</a><a href="./#proverka">Проверить себя</a><a href="./#keisy" aria-current="page">Кейсы</a><a href="./#kak">Как работаю</a><a href="./#obo-mne">Обо мне</a></div><a class="btn pri cta" href="#napisat">Обсудить мой учёт</a><details class="burger"><summary aria-label="Меню"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><div class="drop gl"><a href="./#umeyu">Что умеют системы</a><a href="./#proverka">Проверить себя</a><a href="./#keisy" aria-current="page">Кейсы</a><a href="./#kak">Как работаю</a><a href="./#obo-mne">Обо мне</a></div></details></nav></div></header>
+<header><div class="w"><nav class="nav gl" aria-label="Разделы сайта"><a class="brand" href="./"><img src="img/ira-round.webp" alt="" width="38" height="38"><span><b>Ирина</b><small>Архитектор учётных систем · ERP</small></span></a><div class="menu"><a href="./#umeyu">Что умеют системы</a><a href="./#proverka">Проверить себя</a><div class="dd"><a href="./#keisy" aria-current="page">Кейсы<svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="ddm gl"><a href="otdelka.html"><i><img src="img/app-rk.png" alt="" width="26" height="26"></i><span><b>Отделка и&nbsp;стройка</b><small>Учёт от&nbsp;замера до&nbsp;зарплаты</small></span></a><a href="perevozki.html"><i><img src="img/app-dt.png" alt="" width="26" height="26"></i><span><b>Документооборот</b><small>На&nbsp;примере транспортной компании</small></span></a></div></div><a href="./#kak">Как работаю</a><a href="./#obo-mne">Обо мне</a></div><a class="btn pri cta" href="#napisat">Обсудить мой учёт</a><details class="burger"><summary aria-label="Меню"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2236" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><div class="drop gl"><a href="./#umeyu">Что умеют системы</a><a href="./#proverka">Проверить себя</a><a href="./#keisy" aria-current="page">Кейсы</a><div class="bsub"><a href="otdelka.html"><i><img src="img/app-rk.png" alt="" width="26" height="26"></i><span><b>Отделка и&nbsp;стройка</b><small>Учёт от&nbsp;замера до&nbsp;зарплаты</small></span></a><a href="perevozki.html"><i><img src="img/app-dt.png" alt="" width="26" height="26"></i><span><b>Документооборот</b><small>На&nbsp;примере транспортной компании</small></span></a></div><a href="./#kak">Как работаю</a><a href="./#obo-mne">Обо мне</a></div></details></nav></div></header>
 <main class="w">
   <section class="page-hero">
-    <span class="eyebrow gl">Кейс · перевозки и&nbsp;документооборот</span>
+    <span class="eyebrow gl">Кейс · документооборот на&nbsp;примере перевозок</span>
     <h1>Из&nbsp;папок с&nbsp;копиями&nbsp;— <b>в&nbsp;приложение в&nbsp;телефоне</b></h1>
     <p>Документооборот транспортной компании в&nbsp;два шага. Договор, счёт, акт и&nbsp;акт приёмки&nbsp;— без копирования старых файлов. Сначала навела порядок в&nbsp;Google Таблице, потом на&nbsp;той&nbsp;же&nbsp;базе сделала приложение.</p>
     <div class="chips"><span class="gl"><b>22</b> контрагента</span><span class="gl"><b>7</b> договоров</span><span class="gl"><b>87</b> документов перенесено</span><span class="gl">компьютер и&nbsp;телефон</span></div>
@@ -471,7 +496,7 @@ button.tile:hover{transform:translateY(-2px)}
   </section>
 </main>
 
-<footer><a href="./">Главная</a><a href="otdelka.html">Кейс «Отделка»</a><a href="perevozki.html">Кейс «Перевозки»</a><a href="./#podarok">Подарок: головоломка</a><a href="./#obo-mne">Обо мне</a><a href="https://vk.ru/erpintable" target="_blank" rel="noopener">ВКонтакте</a><a href="#" data-avito>Авито</a><a href="#">Профи.ру</a><a href="#">Яндекс Услуги</a><div class="req">ИП&nbsp;Мальцева Ирина Евгеньевна · ОГРНИП 309231530100060 от&nbsp;28.10.2009 · Работаю по&nbsp;договору, оплата на&nbsp;расчётный счёт</div><div class="motto"><img src="img/vmalom-znak.png?v=2" width="40" height="40" alt=""><span><b>vmalom.ru</b>&nbsp;— учёт, верный в&nbsp;малом бизнесе. А&nbsp;«верный в&nbsp;малом и&nbsp;во&nbsp;многом верен» (Лк 16:10)</span></div></footer>
+<footer><a href="./">Главная</a><a href="otdelka.html">Кейс «Отделка»</a><a href="perevozki.html">Кейс «Документооборот»</a><a href="./#podarok">Подарок: головоломка</a><a href="./#obo-mne">Обо мне</a><a href="https://vk.ru/erpintable" target="_blank" rel="noopener">ВКонтакте</a><a href="#" data-avito>Авито</a><a href="#">Профи.ру</a><a href="#">Яндекс Услуги</a><div class="req">ИП&nbsp;Мальцева Ирина Евгеньевна · ОГРНИП 309231530100060 от&nbsp;28.10.2009 · Работаю по&nbsp;договору, оплата на&nbsp;расчётный счёт</div><div class="motto"><img src="img/vmalom-znak.png?v=2" width="40" height="40" alt=""><span><b>vmalom.ru</b>&nbsp;— учёт, верный в&nbsp;малом бизнесе. А&nbsp;«верный в&nbsp;малом и&nbsp;во&nbsp;многом верен» (Лк 16:10)</span></div></footer>
 <div class="modal" id="avm" hidden><div class="mbox gl" role="dialog" aria-modal="true" aria-labelledby="avmt"><button class="mx" type="button" aria-label="Закрыть">×</button><img src="img/avito-card.webp" alt="Обложка объявления: «Сведу то, что не сходится», Архитектор ERP" width="320" height="320"><h3 id="avmt">Как найти меня на&nbsp;Авито</h3><p>Ищите карточку с&nbsp;этой обложкой по&nbsp;запросу:</p><span class="btn sec mail">Разработка учётных систем, CRM и&nbsp;Google Таблиц</span><a class="btn pri" href="https://www.avito.ru/moskva/predlozheniya_uslug?q=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D1%83%D1%87%D1%91%D1%82%D0%BD%D1%8B%D1%85%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%2C%20CRM%20%D0%B8%20Google%20%D0%A2%D0%B0%D0%B1%D0%BB%D0%B8%D1%86" target="_blank" rel="noopener">Открыть поиск Авито</a><small>Запрос уже будет в&nbsp;строке поиска. Нажмите на&nbsp;него выше, чтобы скопировать.</small></div></div>
 <script>
 // при обновлении страницы — всегда наверх
