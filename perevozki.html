@@ -349,8 +349,8 @@ button.tile:hover{transform:translateY(-2px)}
 .vtabs .btn.on:hover{color:#fff}
 
 /* правки после ревью 08.11 */
-.panel>h2{font-weight:300;font-size:clamp(30px,4.4vw,54px);line-height:1.08}
-.panel>h2 b{font-weight:600}
+.panel>h2,.gtext>h2{font-weight:300;font-size:clamp(30px,4.4vw,54px);line-height:1.08}
+.panel>h2 b,.gtext>h2 b{font-weight:600}
 .mailrow{display:inline-flex;gap:8px}
 .mailrow .icbtn{flex:none}
 @media (max-width:520px){
@@ -423,6 +423,10 @@ button.tile:hover{transform:translateY(-2px)}
 .burger .drop .bsub b{font-size:15px}.burger .drop .bsub small{font-size:12.5px;white-space:nowrap}
 .burger .drop:has(.bsub){min-width:290px}
 .ddm i img,.bsub i img{display:block;width:26px;height:26px;border-radius:7px}.bsub i img{width:22px;height:22px;border-radius:6px}
+/* подарок: скрин игры (11.11) */
+.gift{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center}.gtext{text-align:center}
+.giftshot{margin:0}.giftshot img{display:block;height:260px;width:auto;border-radius:20px;box-shadow:0 20px 44px -18px rgba(11,34,54,.35)}
+@media (max-width:900px){.gift{grid-template-columns:1fr;gap:24px}.giftshot{justify-self:center}.giftshot img{height:auto;width:min(300px,100%)}}
 </style>
 </head>
 <body>

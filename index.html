@@ -349,8 +349,8 @@ button.tile:hover{transform:translateY(-2px)}
 .vtabs .btn.on:hover{color:#fff}
 
 /* правки после ревью 08.11 */
-.panel>h2{font-weight:300;font-size:clamp(30px,4.4vw,54px);line-height:1.08}
-.panel>h2 b{font-weight:600}
+.panel>h2,.gtext>h2{font-weight:300;font-size:clamp(30px,4.4vw,54px);line-height:1.08}
+.panel>h2 b,.gtext>h2 b{font-weight:600}
 .mailrow{display:inline-flex;gap:8px}
 .mailrow .icbtn{flex:none}
 @media (max-width:520px){
@@ -423,6 +423,10 @@ button.tile:hover{transform:translateY(-2px)}
 .burger .drop .bsub b{font-size:15px}.burger .drop .bsub small{font-size:12.5px;white-space:nowrap}
 .burger .drop:has(.bsub){min-width:290px}
 .ddm i img,.bsub i img{display:block;width:26px;height:26px;border-radius:7px}.bsub i img{width:22px;height:22px;border-radius:6px}
+/* подарок: скрин игры (11.11) */
+.gift{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center}.gtext{text-align:center}
+.giftshot{margin:0}.giftshot img{display:block;height:260px;width:auto;border-radius:20px;box-shadow:0 20px 44px -18px rgba(11,34,54,.35)}
+@media (max-width:900px){.gift{grid-template-columns:1fr;gap:24px}.giftshot{justify-self:center}.giftshot img{height:auto;width:min(300px,100%)}}
 </style>
 </head>
 <body>
@@ -527,11 +531,14 @@ button.tile:hover{transform:translateY(-2px)}
   </section>
 
   <section class="s" id="podarok">
-    <div class="panel gl" style="text-align:center">
+    <div class="panel gl gift">
+      <div class="gtext">
       <span class="eyebrow gl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8336F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px;margin-right:6px"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg>Подарок</span>
       <h2 style="margin-top:18px">Головоломка «Охота на&nbsp;лис»&nbsp;— <b>вам в&nbsp;подарок</b></h2>
       <p style="color:var(--muted);font-size:18px;max-width:620px;margin:14px auto 0">Логическая игра по&nbsp;мотивам головоломки из&nbsp;«Науки и&nbsp;жизни» 1985 года. Размять голову&nbsp;— пара минут.</p>
       <div class="ctas gbtns"><a class="btn sec" href="https://fox-hunt.github.io" target="_blank" rel="noopener">Играть в&nbsp;браузере</a><a class="btn sec" href="https://t.me/FoxHuntGameBot?startapp" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#2AABEE"/><path d="M5.4 11.8l11.3-4.4c.5-.2 1 .1.8.9l-1.9 9c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-3 5.4-4.9c.2-.2 0-.3-.3-.1l-6.7 4.2-2.9-.9c-.6-.2-.6-.6.1-.8z" fill="#fff"/></svg>Играть в&nbsp;Telegram</a></div>
+    </div>
+      <div class="shot giftshot"><img src="img/podarok-igra.webp" alt="Игра «Охота на лис»: ходы, найденные лисы, время и лес с открытыми клетками" loading="lazy" width="560" height="667"></div>
     </div>
   </section>
 </main>
