@@ -375,6 +375,29 @@ button.tile:hover{transform:translateY(-2px)}
 .doc h3{margin:26px 0 8px;font-size:19px}.doc h3:first-child{margin-top:0}
 .doc p{margin:0 0 10px;color:var(--muted);line-height:1.6}.doc a{color:var(--pinkink);text-decoration:underline}
 .doc .small{font-size:13.5px;margin-top:24px}
+/* «Шаг 1» кейса «Перевозки»: плашки; на компьютере скрин всплывает при наведении, на телефоне раскрывается при пролистывании (11.11) */
+.tpeek{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tpeek .tnext{margin:0}
+.tpeek .pk{display:block}
+.tpeek .pk img{display:block;width:100%;height:auto;border-radius:12px;cursor:zoom-in}
+@media (hover:hover) and (min-width:901px){
+ .tpeek button{z-index:1}.tpeek button:hover,.tpeek button:focus-visible{z-index:5}
+ .tpeek .pk{position:absolute;bottom:calc(100% + 12px);left:50%;width:min(720px,72vw);padding:8px;border-radius:20px;background:#fff;box-shadow:0 30px 70px -18px rgba(11,34,54,.45);
+  opacity:0;pointer-events:none;transform:translate(-50%,10px) scale(.97);transform-origin:50% 100%;transition:opacity .2s,transform .2s}
+ .tpeek button:nth-child(3n+1) .pk{left:0;transform:translate(0,10px) scale(.97);transform-origin:0 100%}
+ .tpeek button:nth-child(3n) .pk{left:auto;right:0;transform:translate(0,10px) scale(.97);transform-origin:100% 100%}
+ .tpeek button:nth-child(-n+3) .pk{bottom:auto;top:calc(100% + 12px);transform-origin:50% 0}
+ .tpeek button:nth-child(1) .pk{transform-origin:0 0}.tpeek button:nth-child(3) .pk{transform-origin:100% 0}
+ .tpeek button:hover .pk,.tpeek button:focus-visible .pk{opacity:1;transform:translate(-50%,0) scale(1)}
+ .tpeek button:nth-child(3n+1):hover .pk,.tpeek button:nth-child(3n+1):focus-visible .pk,.tpeek button:nth-child(3n):hover .pk,.tpeek button:nth-child(3n):focus-visible .pk{transform:none}
+}
+@media (hover:none),(max-width:900px){
+ .tpeek{grid-template-columns:1fr}
+ .tpeek .see{display:none}
+ .tpeek .pk{max-height:0;opacity:0;overflow:hidden;margin-top:0;transition:max-height .6s ease,opacity .5s ease,margin-top .6s ease}
+ .tpeek button.open .pk{max-height:700px;opacity:1;margin-top:14px}
+ .tpeek button:hover{transform:none}
+}
 </style>
 </head>
 <body>
@@ -397,20 +420,25 @@ button.tile:hover{transform:translateY(-2px)}
       <div><span class="eyebrow gl">Задача</span><h3 style="margin-top:14px">Один и&nbsp;тот&nbsp;же&nbsp;пакет бумаг на&nbsp;каждый рейс</h3><p>Небольшая транспортная компания: автобусы, рейсы по&nbsp;договорам с&nbsp;организациями. На&nbsp;каждый рейс&nbsp;— договор, счёт, акт, а&nbsp;для постоянных заказчиков&nbsp;— акт приёмки за&nbsp;месяц по&nbsp;дням.</p>
         <h3 style="margin-top:28px">Как было</h3>
         <ul class="list"><li>Папка на&nbsp;каждого заказчика, внутри год, внутри копии копий</li><li>Новый договор&nbsp;— копия прошлого с&nbsp;ручной заменой реквизитов, дат и&nbsp;сумм</li><li>Кто оплатил, а&nbsp;кто нет&nbsp;— в&nbsp;голове или в&nbsp;отдельном списке</li><li>Найти документ полугодовой давности может только тот, кто его сохранял</li></ul></div>
-      <div class="frame"><img src="img/tr-bylo.webp" alt="Было: копии документов в папках на компьютере" loading="lazy" width="1400" height="880"></div>
+      <div class="frame"><img src="img/tr-bylo.webp" alt="Было: копии документов в папках на компьютере" loading="lazy" width="1400" height="875"></div>
     </div>
   </section>
 
   <section class="s">
     <div class="head"><span class="eyebrow gl">Шаг 1</span><h2>Google Таблица&nbsp;— <b>порядок без новой программы</b></h2></div>
-    <div class="tiles">
-      <div class="tile gl"><b>Справочник контрагентов</b><p>Реквизиты вносятся один раз, дальше подставляются сами.</p></div>
-      <div class="tile gl"><b>Договор одной кнопкой</b><p>По&nbsp;шаблону, сразу в&nbsp;реестре со&nbsp;ссылкой.</p></div>
-      <div class="tile gl"><b>Счёт и&nbsp;акт одной формой</b><p>Нумерация и&nbsp;сумма прописью&nbsp;— автоматически.</p></div>
-      <div class="tile gl"><b>Акт приёмки по&nbsp;дням</b><p>С&nbsp;учётом праздников и&nbsp;переносов по&nbsp;производственному календарю.</p></div>
-      <div class="tile gl"><b>Файлы по&nbsp;папкам сами</b><p>Каждый документ ложится в&nbsp;папку «заказчик / год».</p></div>
-      <div class="tile gl"><b>Захотелось большего</b><p>Таблица заработала&nbsp;— и&nbsp;пришёл аппетит: документы с&nbsp;телефона, статусы и&nbsp;оплаты на&nbsp;виду, история исправлений.</p></div>
+    <div class="tiles tpeek">
+      <button class="tile gl" data-shots="img/tr-t-parties.webp|Справочник контрагентов в Google Таблице"><b>Справочник контрагентов</b><p>Реквизиты вносятся один раз, дальше подставляются сами.</p><span class="see">Посмотреть экран</span><span class="pk"><img src="img/tr-t-parties.webp" alt="Справочник контрагентов в Google Таблице" loading="lazy" width="1600" height="895"></span></button>
+      <button class="tile gl" data-shots="img/tr-t-contract.webp|Создание договора и реестр договоров в Google Таблице"><b>Договор одной кнопкой</b><p>По&nbsp;шаблону, сразу в&nbsp;реестре со&nbsp;ссылкой. Файл сам ложится в&nbsp;папку «заказчик / год».</p><span class="see">Посмотреть экран</span><span class="pk"><img src="img/tr-t-contract.webp" alt="Создание договора и реестр договоров в Google Таблице" loading="lazy" width="1600" height="882"></span></button>
+      <button class="tile gl" data-shots="img/tr-t-invoice.webp|Форма счёта и акта в Google Таблице"><b>Счёт и&nbsp;акт одной формой</b><p>Нумерация и&nbsp;сумма прописью&nbsp;— автоматически.</p><span class="see">Посмотреть экран</span><span class="pk"><img src="img/tr-t-invoice.webp" alt="Форма счёта и акта в Google Таблице" loading="lazy" width="1600" height="899"></span></button>
+      <button class="tile gl" data-shots="img/tr-t-accept.webp|Акт приёмки по дням месяца"><b>Акт приёмки по&nbsp;дням</b><p>С&nbsp;учётом праздников и&nbsp;переносов по&nbsp;производственному календарю.</p><span class="see">Посмотреть экран</span><span class="pk"><img src="img/tr-t-accept.webp" alt="Акт приёмки по дням месяца" loading="lazy" width="1600" height="709"></span></button>
+      <button class="tile gl" data-shots="img/tr-t-formula.webp|Формула акта приёмки: производственный календарь"><b>Под капотом&nbsp;— формулы</b><p>Месяц сам раскладывается на&nbsp;рабочие и&nbsp;выходные, праздники&nbsp;— из&nbsp;производственного календаря.</p><span class="see">Посмотреть экран</span><span class="pk"><img src="img/tr-t-formula.webp" alt="Формула акта приёмки: производственный календарь" loading="lazy" width="1600" height="992"></span></button>
+      <div class="tile gl tnext"><b>Когда таблицы стало мало</b><p>Документы понадобились с&nbsp;телефона, оплаты&nbsp;— на&nbsp;виду, исправления&nbsp;— с&nbsp;историей. Так появилось приложение.</p></div>
     </div>
+    <p class="demo">На&nbsp;всех экранах&nbsp;— демонстрационные данные.</p>
+    <script>
+    (function(){if(!('IntersectionObserver' in window))return;var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('open');o.unobserve(e.target)}})},{rootMargin:'0px 0px -40% 0px'});
+      document.querySelectorAll('.tpeek button').forEach(function(t){o.observe(t)})})();
+    </script>
   </section>
 
   <section class="s">
@@ -436,7 +464,7 @@ button.tile:hover{transform:translateY(-2px)}
   <section class="s" id="napisat">
     <div class="contact gl">
       <h2>У&nbsp;вас каждая сделка&nbsp;— <b>одна и&nbsp;та&nbsp;же&nbsp;пачка бумаг?</b></h2>
-      <p>Напишите&nbsp;— разберём, что у&nbsp;вас уже есть и&nbsp;с&nbsp;чего начать. Цену и&nbsp;срок называю до&nbsp;старта.</p>
+      <p>Расскажите, как у&nbsp;вас ходят документы и&nbsp;деньги. Разбор бесплатный: чем занимается компания, сколько человек и&nbsp;что требует внимания в&nbsp;первую очередь. Цену и&nbsp;срок называю до&nbsp;старта.</p>
       <div class="ctas"><a class="btn sec" href="https://t.me/iLazovich" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#2AABEE"/><path d="M5.4 11.8l11.3-4.4c.5-.2 1 .1.8.9l-1.9 9c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-3 5.4-4.9c.2-.2 0-.3-.3-.1l-6.7 4.2-2.9-.9c-.6-.2-.6-.6.1-.8z" fill="#fff"/></svg>Telegram</a><a class="btn sec" href="https://max.ru/u/f9LHodD0cOLRmERmWN9e_5sJa840lUgTZzcFC5ITc8SusKnVSCs-5UPfiqs" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="mxc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#20C3FF"/><stop offset=".55" stop-color="#3D6BFF"/><stop offset="1" stop-color="#9B3BFF"/></linearGradient></defs><rect width="24" height="24" rx="7" fill="url(#mxc)"/><path d="M12 5.6a6.4 6.4 0 0 0-5.5 9.7l-.8 3 3.1-.8A6.4 6.4 0 1 0 12 5.6zm0 2.6a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6z" fill="#fff"/></svg>MAX</a><span class="mailrow"><a class="btn sec" href="mailto:maltsevaie@gmail.com" title="maltsevaie@gmail.com"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B8336F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg>Написать на&nbsp;почту</a></span></div>
       <a class="back" href="./">← На&nbsp;главную</a>
     </div>

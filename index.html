@@ -375,6 +375,29 @@ button.tile:hover{transform:translateY(-2px)}
 .doc h3{margin:26px 0 8px;font-size:19px}.doc h3:first-child{margin-top:0}
 .doc p{margin:0 0 10px;color:var(--muted);line-height:1.6}.doc a{color:var(--pinkink);text-decoration:underline}
 .doc .small{font-size:13.5px;margin-top:24px}
+/* «Шаг 1» кейса «Перевозки»: плашки; на компьютере скрин всплывает при наведении, на телефоне раскрывается при пролистывании (11.11) */
+.tpeek{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tpeek .tnext{margin:0}
+.tpeek .pk{display:block}
+.tpeek .pk img{display:block;width:100%;height:auto;border-radius:12px;cursor:zoom-in}
+@media (hover:hover) and (min-width:901px){
+ .tpeek button{z-index:1}.tpeek button:hover,.tpeek button:focus-visible{z-index:5}
+ .tpeek .pk{position:absolute;bottom:calc(100% + 12px);left:50%;width:min(720px,72vw);padding:8px;border-radius:20px;background:#fff;box-shadow:0 30px 70px -18px rgba(11,34,54,.45);
+  opacity:0;pointer-events:none;transform:translate(-50%,10px) scale(.97);transform-origin:50% 100%;transition:opacity .2s,transform .2s}
+ .tpeek button:nth-child(3n+1) .pk{left:0;transform:translate(0,10px) scale(.97);transform-origin:0 100%}
+ .tpeek button:nth-child(3n) .pk{left:auto;right:0;transform:translate(0,10px) scale(.97);transform-origin:100% 100%}
+ .tpeek button:nth-child(-n+3) .pk{bottom:auto;top:calc(100% + 12px);transform-origin:50% 0}
+ .tpeek button:nth-child(1) .pk{transform-origin:0 0}.tpeek button:nth-child(3) .pk{transform-origin:100% 0}
+ .tpeek button:hover .pk,.tpeek button:focus-visible .pk{opacity:1;transform:translate(-50%,0) scale(1)}
+ .tpeek button:nth-child(3n+1):hover .pk,.tpeek button:nth-child(3n+1):focus-visible .pk,.tpeek button:nth-child(3n):hover .pk,.tpeek button:nth-child(3n):focus-visible .pk{transform:none}
+}
+@media (hover:none),(max-width:900px){
+ .tpeek{grid-template-columns:1fr}
+ .tpeek .see{display:none}
+ .tpeek .pk{max-height:0;opacity:0;overflow:hidden;margin-top:0;transition:max-height .6s ease,opacity .5s ease,margin-top .6s ease}
+ .tpeek button.open .pk{max-height:700px;opacity:1;margin-top:14px}
+ .tpeek button:hover{transform:none}
+}
 </style>
 </head>
 <body>
