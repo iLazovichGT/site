@@ -226,6 +226,8 @@ footer a:hover{color:var(--ink)}
 .panel{border-radius:32px;padding:clamp(24px,4.5vw,52px);margin-top:44px}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px)}
 .cols>*{min-width:0}
+.cols3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:1000px){.cols3{grid-template-columns:1fr 1fr}.cols3>:last-child{grid-column:1/-1}}
 @media (max-width:780px){.cols{grid-template-columns:1fr}}
 .panel h3{font-weight:600;font-size:clamp(22px,2.4vw,28px)}
 .panel p{color:var(--muted);margin:12px 0 0;font-size:17px}
@@ -486,6 +488,53 @@ button.tile:hover{transform:translateY(-2px)}
 .hbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .about .hbtns a.btn{display:inline-flex;margin-top:0;min-height:44px;padding:9px 18px;font-size:15px;color:var(--ink)}
 @media (max-width:560px){.hobby{grid-template-columns:1fr;justify-items:center;text-align:center;gap:16px}.hobby .hshot img{height:auto;width:200px}.hbtns{justify-content:center}.hbtns a.btn{flex:1 1 100%}}
+
+/* кейс «Отделка»: витрина главных экранов, скрин при наведении на плитку (11.11) */
+.gallery.show figcaption{font-size:15px;color:var(--muted)}
+.gallery.show figcaption b{color:var(--ink,inherit);font-weight:600}
+.mods .pk{display:none}
+@media (hover:hover) and (min-width:901px){
+ .mods .mod{z-index:1}.mods .mod:hover,.mods .mod:focus-visible{z-index:5}
+ .mods .pk{display:block;position:absolute;left:0;bottom:calc(100% + 12px);width:min(640px,62vw);padding:8px;border-radius:20px;background:var(--solid);box-shadow:0 30px 70px -18px rgba(11,34,54,.45);
+  opacity:0;pointer-events:none;transform:translateY(10px) scale(.97);transform-origin:0 100%;transition:opacity .2s,transform .2s}
+ .mods .pk img{display:block;width:100%;height:auto;border-radius:12px}
+ .mods .mcol:nth-child(2) .pk{left:50%;transform:translate(-50%,10px) scale(.97);transform-origin:50% 100%}
+ .mods .mcol:nth-child(3) .pk{left:auto;right:0;transform-origin:100% 100%}
+ .mods .mod:nth-of-type(-n+2) .pk{bottom:auto;top:calc(100% + 12px);transform-origin:0 0}
+ .mods .mcol:nth-child(2) .mod:nth-of-type(-n+2) .pk{transform-origin:50% 0}
+ .mods .mcol:nth-child(3) .mod:nth-of-type(-n+2) .pk{transform-origin:100% 0}
+ .mods .mod:hover .pk,.mods .mod:focus-visible .pk{opacity:1;transform:none}
+ .mods .mcol:nth-child(2) .mod:hover .pk,.mods .mcol:nth-child(2) .mod:focus-visible .pk{transform:translate(-50%,0)}
+}
+.chain{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:18px;margin-top:44px}
+.chain .st{position:relative;text-align:center;border-radius:22px;padding:18px 8px 16px}
+.chain .st em{display:block;font-style:normal;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pinkink);margin-bottom:10px}
+.chain .st svg{display:block;margin:0 auto 8px}
+.chain .st b{display:block;font-size:17px;font-weight:600}
+.chain .st p{margin:4px 0 0;font-size:13.5px;line-height:1.35;color:var(--muted)}
+.chain .st:not(:last-child)::after{content:"→";position:absolute;right:-15px;top:50%;transform:translateY(-50%);color:var(--pinkink);font-size:18px;font-weight:700}
+.chain+.niche{margin-top:30px}
+.units{text-align:center;color:var(--muted);margin:18px 0 0;font-size:16px}.units b{color:var(--ink)}
+@media (max-width:1000px){.chain{grid-template-columns:repeat(4,minmax(0,1fr))}.chain .st::after{display:none}}
+@media (max-width:560px){.chain{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+.tabsline.center{justify-content:center;margin-top:24px}
+.tabsline.center+.gallery{margin-top:28px}
+/* плитка «График | Смены»: левая половина — график, правая — календарь смен (11.11) */
+.mod.split .z{position:absolute;top:0;bottom:0;width:50%;z-index:2}
+.mod.split .zl{left:0}.mod.split .zr{right:0}
+.mod.split>b{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.mod.split .wr{text-align:right}
+.mod.split .sep{width:1.5px;height:1em;background:var(--edge2,rgba(11,34,54,.25))}
+.mod.split .wl,.mod.split .wr{transition:color .15s}
+.mod.split:has(.zl:hover) .wl,.mod.split:has(.zr:hover) .wr{color:var(--pinkink)}
+.mods .pk.duo img+img{position:absolute;top:8px;left:8px;width:calc(100% - 16px);opacity:0;transition:opacity .2s}
+.mod.split:has(.zr:hover) .pk.duo img+img{opacity:1}
+/* телефоны в плитке «Замер | Смена» — рамка как в роликах: градиент сайта + белый край экрана (11.11) */
+@media (hover:hover) and (min-width:901px){.mods .phones2 .pk{width:230px;padding:5px;border-radius:40px;background:linear-gradient(160deg,#4CB6EE,#B8336F);box-shadow:0 30px 70px -10px rgba(11,34,54,.35)}
+ .mods .phones2 .pk img{border-radius:35px;border:7px solid #fff;box-sizing:border-box;background:#fff}
+ .mods .phones2 .pk.duo img+img{top:5px;left:5px;width:calc(100% - 10px)}}
+.stalo{text-align:center;margin-top:44px}
+@media (hover:hover) and (min-width:901px){.mods .mod.doc .pk{width:380px}}
 </style>
 </head>
 <body>
@@ -573,7 +622,7 @@ try{if('scrollRestoration' in history)history.scrollRestoration='manual';var nv=
     lb.querySelector('.lb-p').addEventListener('click',function(){step(-1)});
     lb.querySelector('.lb-n').addEventListener('click',function(){step(1)});
     document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')lbClose();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
-    document.querySelectorAll('[data-shots]').forEach(function(el){el.addEventListener('click',function(){lbOpen(el.getAttribute('data-shots').split(';').map(function(x){return x.split('|')}))})});
+    document.querySelectorAll('[data-shots]').forEach(function(el){el.addEventListener('click',function(e){if(e.target.closest('[data-shots]')!==el)return;lbOpen(el.getAttribute('data-shots').split(';').map(function(x){return x.split('|')}))})});
     document.querySelectorAll('.gallery img,.frame img,.shot img').forEach(function(i){i.addEventListener('click',function(){var f=i.closest('figure'),c=f&&f.querySelector('figcaption');lbOpen([[i.currentSrc||i.src,c?c.textContent:(i.alt||'')]])})});
   })();
   (function(){
