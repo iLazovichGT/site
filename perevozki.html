@@ -662,6 +662,17 @@ try{if('scrollRestoration' in history)history.scrollRestoration='manual';var nv=
     var b=e.target.closest('[data-cookie]'); if(b){ set(b.dataset.cookie); bar.hidden=true; if(b.dataset.cookie==='all') metrika(); }
     if(e.target.closest('[data-cookie-reset]')){ try{localStorage.removeItem(K)}catch(_){} bar.hidden=false; }
   });
+  // цели Метрики (11.11): tg / max / mail — кнопки связи, test — отправка теста, avito — переход на Авито, contact — любой способ связаться
+  function goal(g){ try{ if(window.ym) ym(+ID,'reachGoal',g); }catch(_){} }
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('a,button'); if(!t) return;
+    var h=t.getAttribute('href')||'', ch=t.closest('.send-to')&&t.getAttribute('data-ch');
+    if(ch){ goal('test'); goal('contact'); return; }
+    if(/^https:\/\/t\.me\/iLazovich/i.test(h)){ goal('tg'); goal('contact'); }
+    else if(/max\.ru\/u\//.test(h)){ goal('max'); goal('contact'); }
+    else if(/^mailto:/.test(h)){ goal('mail'); goal('contact'); }
+    else if(/avito\.ru/.test(h)){ goal('avito'); }
+  },true);
 })();
 </script>
 </body>
