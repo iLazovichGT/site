@@ -575,6 +575,9 @@ button.tile:hover{transform:translateY(-2px)}
 .vtabs .btn svg{margin-right:2px;flex:none}
 .stage:not(.started) .video .t{display:none}
 @media (max-width:640px){#stabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:360px;margin-left:auto;margin-right:auto}#stabs .btn{min-height:40px;font-size:14px;padding:6px 10px;justify-content:center}}
+/* 14.11: обложка-сводка поверх ролика — до запуска и после конца (Safari после перезагрузки показывает первый кадр, а не poster) */
+.stage .video .vcover{position:absolute;left:10px;top:10px;width:calc(100% - 20px);height:calc(100% - 20px);object-fit:contain;border-radius:22px;pointer-events:none;z-index:1;transition:opacity .3s}
+.stage.started .video .vcover{opacity:0}
 </style>
 </head>
 <body>
