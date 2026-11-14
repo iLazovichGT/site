@@ -575,6 +575,7 @@ button.tile:hover{transform:translateY(-2px)}
 @media (max-width:640px){.video .vend{gap:8px;padding:8px}.video .vend .ctas{flex-direction:row;flex-wrap:wrap;gap:6px;max-width:none}.video .vend .btn{width:auto;min-height:32px;font-size:12.5px;padding:4px 11px}.video .vend b{font-size:16px}}
 .vtabs .btn svg{margin-right:2px;flex:none}
 .stage:not(.started) .video .t{display:none}
+@media (max-width:640px){#stabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:360px;margin-left:auto;margin-right:auto}#stabs .btn{min-height:40px;font-size:14px;padding:6px 10px;justify-content:center}}
 </style>
 </head>
 <body>
@@ -587,7 +588,7 @@ button.tile:hover{transform:translateY(-2px)}
     <p>Одно приложение для телефона и&nbsp;компьютера, где видно, сколько заработал каждый заказ, кто вам должен и&nbsp;сколько платить людям. Собираю его под то, как на&nbsp;самом деле работает ваша компания.</p>
     <div class="ctas"><a class="btn pri" href="#napisat">Обсудить мой учёт</a><a class="btn sec" href="#proverka">Проверить себя за&nbsp;минуту</a></div>
     <div class="stage" id="video">
-      <figure class="video gl" id="sfig"><video id="lpv" controls preload="auto" playsinline poster="img/d-dash.webp" src="video/otdelka-minuta.mp4?v=1111">Ваш браузер не&nbsp;показывает видео.</video><figcaption class="t gl" id="lpt">Коротко · 1 минута</figcaption><div class="vend" id="vend" hidden><b>Посмотрите ещё</b><div class="ctas"><button type="button" class="btn sec" data-v="video/otdelka-obzor.mp4?v=1111|img/otdelka-obzor-poster.webp?v=1111|Кейс «Отделка и стройка» · 2 минуты">Кейс «Отделка» · 2 мин</button><button type="button" class="btn sec" data-v="video/perevozki-keis.mp4?v=1111|img/perevozki-keis-poster.webp?v=1111|Кейс «Документооборот» · 2 минуты">Кейс «Перевозки» · 2 мин</button><button type="button" class="btn sec" data-v="video/otdelka-polny.mp4?v=1311|img/otdelka-polny-poster.webp?v=1311|Полный обзор системы · 8:48">Полный обзор · 8:48</button></div></div></figure>
+      <figure class="video gl" id="sfig"><video id="lpv" controls preload="auto" playsinline poster="img/d-dash.webp" src="video/otdelka-minuta.mp4?v=1111">Ваш браузер не&nbsp;показывает видео.</video><figcaption class="t gl" id="lpt">Коротко · 1 минута</figcaption></figure>
       <div class="chip gl a"><small>Прибыль с&nbsp;метра</small><b>371 ₽</b></div>
       <div class="chip gl b"><small>Ждут оплаты</small><b>591 000 ₽</b></div>
       <div class="chip gl c"><small>Прибыль за&nbsp;месяц</small><b>+601 363 ₽</b></div>
@@ -597,10 +598,11 @@ button.tile:hover{transform:translateY(-2px)}
     <script>
     (function(){
       var v=document.getElementById('lpv'),f=document.getElementById('sfig');if(!v||!f)return;
-      var st=f.closest('.stage'),ve=document.getElementById('vend');
-      v.addEventListener('play',function(){st.classList.add('playing','started');ve.hidden=true;f.classList.remove('ended')});
+      var st=f.closest('.stage');
+      v.addEventListener('play',function(){st.classList.add('playing','started')});
       v.addEventListener('pause',function(){if(!v.ended)st.classList.remove('playing')});
-      v.addEventListener('ended',function(){ve.hidden=false;f.classList.add('ended')});
+      // ролик кончился — снова сводка с плашками и ▶, как в начале
+      v.addEventListener('ended',function(){st.classList.remove('playing','started');f.classList.remove('on');v.setAttribute('poster','img/d-dash.webp');v.load()});
     })();
     </script>
     <div class="niche"><span class="gl">отделка и&nbsp;ремонт</span><span class="gl">монтаж окон и&nbsp;потолков</span><span class="gl">стройка</span><span class="gl">производство</span><span class="gl">перевозки</span><span class="gl">услуги по&nbsp;договорам</span><span class="gl">аренда техники</span><a class="add" href="#napisat">+ ваша отрасль</a></div>
