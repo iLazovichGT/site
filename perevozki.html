@@ -535,6 +535,45 @@ button.tile:hover{transform:translateY(-2px)}
  .mods .phones2 .pk.duo img+img{top:5px;left:5px;width:calc(100% - 10px)}}
 .stalo{text-align:center;margin-top:44px}
 @media (hover:hover) and (min-width:901px){.mods .mod.doc .pk{width:380px}}
+/* 14.11: видео в первом экране — проигрыватель с обложкой-сводкой; плашки прячутся, пока ролик идёт */
+.stage .chip{transition:opacity .4s}
+.stage.playing .chip{opacity:0;pointer-events:none}
+.stage .video{scroll-margin-top:90px}
+#video{scroll-margin-top:80px}
+/* «Перешлите готовый текст» — во всю ширину, невысокий; заголовок по центру, кнопка сбоку по центру текста */
+.share{border-radius:28px;padding:clamp(20px,3vw,28px) clamp(20px,3.5vw,36px)}
+.share h2{font-weight:400;font-size:clamp(18px,1.9vw,22px);line-height:1.25;text-align:center}
+.share h2 b{font-weight:600}
+.share .srow{display:flex;align-items:center;gap:clamp(16px,3vw,28px);margin-top:12px}
+.share blockquote{flex:1;min-width:0;margin:0;padding:12px 16px;border-radius:16px;background:var(--glass-hi);border:1px solid var(--edge);font-size:15px;line-height:1.5}
+.share .btn{flex:none;min-height:44px;padding:8px 18px;font-size:15px;gap:8px}
+.share .btn.on{color:var(--pinkink)}
+@media (max-width:640px){.share .srow{flex-direction:column;align-items:center}}
+#podelitsya.s{padding-top:28px}
+/* 14.11: ролик в первом экране крупнее после запуска; заставка «Посмотрите ещё»; кнопка видео на карточках кейсов */
+.stage{transition:max-width .35s ease,padding .35s ease}
+.stage.started{max-width:1180px;padding-left:0;padding-right:0}
+.video .vend{position:absolute;inset:10px;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:20px;z-index:3;
+  background:rgba(238,245,251,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.video .vend[hidden]{display:none}
+.video .vend b{font-size:clamp(20px,2.4vw,28px);font-weight:600}
+.video .vend .ctas{justify-content:center;margin:0}
+.video.ended .vplay,.video.ended .vbar{display:none}
+:root[data-theme="dark"] .video .vend{background:rgba(11,22,34,.82)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .video .vend{background:rgba(11,22,34,.82)}}
+.casecard .cimg{position:relative;display:block}
+.casecard .cplay{position:absolute;left:14px;bottom:14px;display:inline-flex;align-items:center;gap:6px;padding:8px 14px 8px 11px;border-radius:999px;font-size:14px;font-weight:700;color:var(--ink);cursor:pointer;
+  border:2px solid transparent;background:linear-gradient(var(--solid),var(--solid)) padding-box,linear-gradient(135deg,var(--sky),var(--pink)) border-box;box-shadow:0 8px 22px rgba(11,34,54,.22);transition:transform .2s}
+.casecard .cplay svg{color:var(--pinkink)}
+.casecard .cplay:hover{transform:scale(1.06)}
+.casecard .gos{margin-top:auto;padding-top:10px;display:flex;flex-wrap:wrap;gap:6px 22px}
+.casecard .gos .go{margin-top:0;padding-top:0}
+.casecard .go.gv{color:var(--pinkink);cursor:pointer}
+.casecard .go.gv:hover{text-decoration:underline}
+#video{scroll-margin-top:90px}
+@media (max-width:640px){.video .vend{gap:8px;padding:8px}.video .vend .ctas{flex-direction:row;flex-wrap:wrap;gap:6px;max-width:none}.video .vend .btn{width:auto;min-height:32px;font-size:12.5px;padding:4px 11px}.video .vend b{font-size:16px}}
+.vtabs .btn svg{margin-right:2px;flex:none}
+.stage:not(.started) .video .t{display:none}
 </style>
 </head>
 <body>
@@ -548,7 +587,7 @@ button.tile:hover{transform:translateY(-2px)}
     <div class="chips"><span class="gl"><b>22</b> контрагента</span><span class="gl"><b>7</b> договоров</span><span class="gl"><b>87</b> документов перенесено</span><span class="gl">компьютер и&nbsp;телефон</span></div>
   </section>
 
-  <section class="s" style="padding-top:48px">
+  <section class="s" id="video" style="padding-top:48px">
     <figure class="video gl"><video controls preload="none" playsinline poster="img/perevozki-keis-poster.webp?v=1111"><source src="video/perevozki-keis.mp4?v=1111" type="video/mp4">Ваш браузер не&nbsp;показывает видео.</video><figcaption class="t gl">Обзор · 2 минуты</figcaption></figure>
   </section>
 
